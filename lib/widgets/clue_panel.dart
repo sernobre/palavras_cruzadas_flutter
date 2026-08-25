@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
 class CluePanel extends StatefulWidget {
   final CrosswordPuzzle puzzle;
+  final UiStrings ui;
   final void Function(int r, int c) onSelect;
 
-  const CluePanel({super.key, required this.puzzle, required this.onSelect});
+  const CluePanel(
+      {super.key,
+      required this.puzzle,
+      required this.ui,
+      required this.onSelect});
 
   @override
   State<CluePanel> createState() => _CluePanelState();
@@ -17,10 +23,11 @@ class _CluePanelState extends State<CluePanel> {
 
   @override
   Widget build(BuildContext context) {
+    final ui = widget.ui;
     final clues = _showAcross ? widget.puzzle.acrossClues : widget.puzzle.downClues;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pistas'),
+        title: Text(ui.clues),
       ),
       body: Column(
         children: [
@@ -33,12 +40,12 @@ class _CluePanelState extends State<CluePanel> {
             child: Row(
               children: [
                 _Tab(
-                  label: 'Horizontais',
+                  label: ui.across,
                   selected: _showAcross,
                   onTap: () => setState(() => _showAcross = true),
                 ),
                 _Tab(
-                  label: 'Verticais',
+                  label: ui.down,
                   selected: !_showAcross,
                   onTap: () => setState(() => _showAcross = false),
                 ),
@@ -65,7 +72,7 @@ class _CluePanelState extends State<CluePanel> {
                     ),
                     title: Text(clue.text),
                     subtitle: Text(
-                      '${clue.answer.length} letras',
+                      '${clue.answer.length} ${widget.ui.lettersWord}',
                       style: const TextStyle(color: AppTheme.muted, fontSize: 12),
                     ),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded,

@@ -5,6 +5,20 @@ class Entry {
   const Entry(this.word, this.clue);
 }
 
+class Difficulty {
+  final String id;
+  final String label;
+  final String description;
+  final List<Entry> entries;
+
+  const Difficulty({
+    required this.id,
+    required this.label,
+    required this.description,
+    required this.entries,
+  });
+}
+
 class CellRef {
   int r;
   int c;

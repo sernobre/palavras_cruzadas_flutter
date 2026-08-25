@@ -1,0 +1,153 @@
+import '../models/crossword.dart';
+import 'words_pt.dart';
+import 'words_es.dart';
+import 'words_en.dart';
+
+class UiStrings {
+  final String appTitle;
+  final String subtitle;
+  final String homeHint;
+  final String clues;
+  final String newPuzzle;
+  final String tapToStart;
+  final String hint;
+  final String clear;
+  final String check;
+  final String across;
+  final String down;
+  final String solvedTitle;
+  final String statusTitle;
+  final String solvedBody;
+  final String close;
+  final String lettersWord;
+
+  const UiStrings({
+    required this.appTitle,
+    required this.subtitle,
+    required this.homeHint,
+    required this.clues,
+    required this.newPuzzle,
+    required this.tapToStart,
+    required this.hint,
+    required this.clear,
+    required this.check,
+    required this.across,
+    required this.down,
+    required this.solvedTitle,
+    required this.statusTitle,
+    required this.solvedBody,
+    required this.close,
+    required this.lettersWord,
+  });
+
+  String progress(int correct, int total) => '$correct/$total';
+  String statusBody(int correct, int total) => '$correct/$total';
+}
+
+class Language {
+  final String id;
+  final String label;
+  final List<String> alphabet;
+  final List<Difficulty> difficulties;
+  final UiStrings ui;
+
+  const Language({
+    required this.id,
+    required this.label,
+    required this.alphabet,
+    required this.difficulties,
+    required this.ui,
+  });
+
+  Difficulty difficultyById(String id) =>
+      difficulties.firstWhere((d) => d.id == id);
+}
+
+const List<String> _azList = [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+];
+
+const List<String> _azNList = [..._azList, 'Ñ'];
+
+const UiStrings _ptUi = UiStrings(
+  appTitle: 'Palavras Cruzadas',
+  subtitle: 'Português de Portugal',
+  homeHint:
+      'Escolhe um nível de dificuldade para começar a resolver o puzzle.',
+  clues: 'Pistas',
+  newPuzzle: 'Novo puzzle',
+  tapToStart: 'Toca numa casa para começar',
+  hint: 'Dica',
+  clear: 'Limpar',
+  check: 'Verificar',
+  across: 'Horizontais',
+  down: 'Verticais',
+  solvedTitle: 'Parabéns!',
+  statusTitle: 'Estado do puzzle',
+  solvedBody: 'Resolveste o puzzle por completo. Muito bem!',
+  lettersWord: 'letras',
+  close: 'Fechar',
+);
+
+const UiStrings _esUi = UiStrings(
+  appTitle: 'Crucigramas',
+  subtitle: 'Español',
+  homeHint: 'Elige un nivel de dificultad para empezar a resolver el puzzle.',
+  clues: 'Pistas',
+  newPuzzle: 'Nuevo puzzle',
+  tapToStart: 'Toca una casilla para empezar',
+  hint: 'Pista',
+  clear: 'Borrar',
+  check: 'Verificar',
+  across: 'Horizontales',
+  down: 'Verticales',
+  solvedTitle: '¡Enhorabuena!',
+  statusTitle: 'Estado del puzzle',
+  solvedBody: 'Has resuelto el puzzle por completo. ¡Muy bien!',
+  lettersWord: 'letras',
+  close: 'Cerrar',
+);
+
+const UiStrings _enUi = UiStrings(
+  appTitle: 'Crossword',
+  subtitle: 'English',
+  homeHint: 'Choose a difficulty level to start solving the puzzle.',
+  clues: 'Clues',
+  newPuzzle: 'New puzzle',
+  tapToStart: 'Tap a cell to start',
+  hint: 'Hint',
+  clear: 'Clear',
+  check: 'Check',
+  across: 'Across',
+  down: 'Down',
+  solvedTitle: 'Congratulations!',
+  statusTitle: 'Puzzle status',
+  solvedBody: 'You solved the whole puzzle. Well done!',
+  lettersWord: 'letters',
+  close: 'Close',
+);
+
+const List<Language> languages = [
+  Language(
+    id: 'pt',
+    label: 'Português',
+    alphabet: _azList,
+    difficulties: ptDifficulties,
+    ui: _ptUi,
+  ),
+  Language(
+    id: 'es',
+    label: 'Español',
+    alphabet: _azNList,
+    difficulties: esDifficulties,
+    ui: _esUi,
+  ),
+  Language(
+    id: 'en',
+    label: 'English',
+    alphabet: _azList,
+    difficulties: enDifficulties,
+    ui: _enUi,
+  ),
+];

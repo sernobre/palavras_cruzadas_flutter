@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:palavrascruzadas/data/words.dart';
+import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/models/generator.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
@@ -8,9 +8,11 @@ import 'package:palavrascruzadas/widgets/crossword_board.dart';
 import 'package:palavrascruzadas/widgets/keyboard.dart';
 
 class GameScreen extends StatefulWidget {
+  final Language language;
   final Difficulty difficulty;
 
-  const GameScreen({super.key, required this.difficulty});
+  const GameScreen(
+      {super.key, required this.language, required this.difficulty});
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -27,6 +29,8 @@ class _GameScreenState extends State<GameScreen> {
   late Map<String, Clue> _cellDown;
   late Map<String, int> _cellNumber;
 
+  UiStrings get ui => widget.language.ui;
+
   @override
   void initState() {
     super.initState();
@@ -36,7 +40,8 @@ class _GameScreenState extends State<GameScreen> {
   void _buildPuzzle() {
     final entries = [...widget.difficulty.entries];
     entries.shuffle();
-    _puzzle = generateCrossword(entries);
+    _puzzle = generateCrossword(entries,
+        alphabet: widget.language.alphabet.toSet());
     _userInput.clear();
     _revealed.clear();
     _cellAcross = {};
@@ -172,16 +177,14 @@ class _GameScreenState extends State<GameScreen> {
             Icon(solved ? Icons.celebration_rounded : Icons.lightbulb_rounded,
                 color: solved ? AppTheme.accent : Colors.orange),
             const SizedBox(width: 10),
-            Text(solved ? 'Parabéns!' : 'Estado do puzzle'),
+            Text(solved ? ui.solvedTitle : ui.statusTitle),
           ],
         ),
-        content: Text(solved
-            ? 'Resolveste o puzzle por completo. Muito bem!'
-            : 'Tens $correct de $total casas corretas. Continua!'),
+        content: Text(solved ? ui.solvedBody : ui.statusBody(correct, total)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Fechar'),
+            child: Text(ui.close),
           ),
           if (solved)
             FilledButton(
@@ -189,7 +192,7 @@ class _GameScreenState extends State<GameScreen> {
                 Navigator.pop(context);
                 setState(_buildPuzzle);
               },
-              child: const Text('Novo puzzle'),
+              child: Text(ui.newPuzzle),
             ),
         ],
       ),
@@ -204,7 +207,7 @@ class _GameScreenState extends State<GameScreen> {
         title: Text(widget.difficulty.label),
         actions: [
           IconButton(
-            tooltip: 'Pistas',
+            tooltip: ui.clues,
             icon: const Icon(Icons.menu_book_rounded),
             onPressed: () {
               Navigator.push(
@@ -212,6 +215,7 @@ class _GameScreenState extends State<GameScreen> {
                 MaterialPageRoute(
                   builder: (_) => CluePanel(
                     puzzle: _puzzle,
+                    ui: ui,
                     onSelect: (r, c) {
                       Navigator.pop(context);
                       _selectCell(r, c);
@@ -231,6 +235,7 @@ class _GameScreenState extends State<GameScreen> {
       body: Column(
         children: [
           _ClueBar(
+            ui: ui,
             clue: clue,
             across: _activeAcross,
             onToggle: _toggleDirection,
@@ -240,22 +245,24 @@ class _GameScreenState extends State<GameScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('$_filledCount/${_puzzle.solution.length} resolvidas',
+                Text(ui.progress(_filledCount, _puzzle.solution.length),
                     style: const TextStyle(color: AppTheme.muted)),
                 Row(
                   children: [
                     _ActionChip(
                         icon: Icons.tips_and_updates_rounded,
-                        label: 'Dica',
+                        label: ui.hint,
                         onTap: _hint),
                     const SizedBox(width: 8),
                     _ActionChip(
                         icon: Icons.cleaning_services_rounded,
-                        label: 'Limpar',
+                        label: ui.clear,
                         onTap: _clear),
                     const SizedBox(width: 8),
                     _ActionChip(
-                        icon: Icons.check_circle_rounded, label: 'Verificar', onTap: _verify),
+                        icon: Icons.check_circle_rounded,
+                        label: ui.check,
+                        onTap: _verify),
                   ],
                 )
               ],
@@ -281,6 +288,7 @@ class _GameScreenState extends State<GameScreen> {
             ),
           ),
           Keyboard(
+            alphabet: widget.language.alphabet,
             onLetter: _inputLetter,
             onBackspace: _backspace,
           ),
@@ -291,12 +299,16 @@ class _GameScreenState extends State<GameScreen> {
 }
 
 class _ClueBar extends StatelessWidget {
+  final UiStrings ui;
   final Clue? clue;
   final bool across;
   final VoidCallback onToggle;
 
   const _ClueBar(
-      {required this.clue, required this.across, required this.onToggle});
+      {required this.ui,
+      required this.clue,
+      required this.across,
+      required this.onToggle});
 
   @override
   Widget build(BuildContext context) {
@@ -329,7 +341,7 @@ class _ClueBar extends StatelessWidget {
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                clue?.text ?? 'Toca numa casa para começar',
+                clue?.text ?? ui.tapToStart,
                 style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
               ),
             ),

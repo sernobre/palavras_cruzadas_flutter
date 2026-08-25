@@ -5,24 +5,38 @@ const Map<String, String> _diacritics = {
   'Â': 'A',
   'Ã': 'A',
   'À': 'A',
+  'Ä': 'A',
   'É': 'E',
   'Ê': 'E',
+  'Ë': 'E',
   'Í': 'I',
+  'Ï': 'I',
   'Ó': 'O',
   'Ô': 'O',
   'Õ': 'O',
+  'Ö': 'O',
   'Ú': 'U',
+  'Ü': 'U',
   'Ç': 'C',
+  'Ñ': 'Ñ',
 };
 
-String stripDiacritics(String s) {
+Set<String> alphabetAZ() => {
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    };
+
+String stripDiacritics(String s) => normalizeWord(s, alphabetAZ());
+
+String normalizeWord(String s, Set<String> alphabet) {
   s = s.toUpperCase();
   final buffer = StringBuffer();
   for (final ch in s.runes) {
     final c = String.fromCharCode(ch);
-    buffer.write(_diacritics[c] ?? c);
+    final mapped = _diacritics[c] ?? c;
+    if (alphabet.contains(mapped)) buffer.write(mapped);
   }
-  return buffer.toString().replaceAll(RegExp(r'[^A-Z]'), '');
+  return buffer.toString();
 }
 
 class _Placed {
@@ -47,10 +61,15 @@ class _StartEntry {
   _StartEntry(this.r, this.c, this.pe);
 }
 
-CrosswordPuzzle generateCrossword(List<Entry> entries) {
-  final sorted = [...entries]
-    ..sort((a, b) => stripDiacritics(b.word).length
-        .compareTo(stripDiacritics(a.word).length));
+CrosswordPuzzle generateCrossword(List<Entry> entries,
+    {Set<String>? alphabet}) {
+  final alpha = alphabet ?? alphabetAZ();
+  final usable = entries
+      .where((e) => normalizeWord(e.word, alpha).length >= 2)
+      .toList();
+  final sorted = [...usable]
+    ..sort((a, b) => normalizeWord(b.word, alpha).length
+        .compareTo(normalizeWord(a.word, alpha).length));
 
   final placed = <_Placed>[];
   final occ = <String, String>{};
@@ -112,12 +131,12 @@ CrosswordPuzzle generateCrossword(List<Entry> entries) {
   }
 
   final first = sorted.first;
-  final firstWord = stripDiacritics(first.word);
+  final firstWord = normalizeWord(first.word, alpha);
   doPlace(firstWord, 0, 0, true, first);
 
   for (var i = 1; i < sorted.length; i++) {
     final e = sorted[i];
-    final w = stripDiacritics(e.word);
+    final w = normalizeWord(e.word, alpha);
     outer:
     for (final pe in placed) {
       for (var pi = 0; pi < pe.cells.length; pi++) {

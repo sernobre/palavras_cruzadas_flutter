@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:palavrascruzadas/data/words.dart';
+import 'package:palavrascruzadas/data/languages.dart';
+import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/screens/game_screen.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
@@ -21,12 +22,20 @@ class PalavrasCruzadasApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selected = 0;
+
+  @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final language = languages[_selected];
+    final ui = language.ui;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -47,33 +56,39 @@ class HomeScreen extends StatelessWidget {
                         color: AppTheme.primary, size: 30),
                   ),
                   const SizedBox(width: 14),
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Palavras Cruzadas',
-                            style: TextStyle(
+                        Text(ui.appTitle,
+                            style: const TextStyle(
                                 fontSize: 26, fontWeight: FontWeight.w800)),
-                        Text('Português de Portugal',
-                            style: TextStyle(color: AppTheme.muted, fontSize: 14)),
+                        Text(ui.subtitle,
+                            style: const TextStyle(
+                                color: AppTheme.muted, fontSize: 14)),
                       ],
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
-              const Text(
-                'Escolhe um nível de dificuldade para começar a resolver o puzzle.',
-                style: TextStyle(fontSize: 15, color: AppTheme.muted),
+              Text(
+                ui.homeHint,
+                style: const TextStyle(fontSize: 15, color: AppTheme.muted),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
+              _LanguageSelector(
+                selected: _selected,
+                onSelect: (i) => setState(() => _selected = i),
+              ),
+              const SizedBox(height: 16),
               Expanded(
                 child: ListView.separated(
-                  itemCount: difficulties.length,
+                  itemCount: language.difficulties.length,
                   separatorBuilder: (context, _) => const SizedBox(height: 16),
                   itemBuilder: (context, index) {
-                    final d = difficulties[index];
-                    return _DifficultyCard(difficulty: d, width: size.width);
+                    final d = language.difficulties[index];
+                    return _DifficultyCard(difficulty: d);
                   },
                 ),
               ),
@@ -85,11 +100,58 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class _LanguageSelector extends StatelessWidget {
+  final int selected;
+  final void Function(int) onSelect;
+
+  const _LanguageSelector({required this.selected, required this.onSelect});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: AppTheme.background,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: AppTheme.cellBorder),
+      ),
+      child: Row(
+        children: [
+          for (var i = 0; i < languages.length; i++)
+            Expanded(
+              child: GestureDetector(
+                onTap: () => onSelect(i),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: selected == i
+                        ? AppTheme.primary
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    languages[i].label,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: selected == i
+                          ? Colors.white
+                          : AppTheme.muted,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
 class _DifficultyCard extends StatelessWidget {
   final Difficulty difficulty;
-  final double width;
 
-  const _DifficultyCard({required this.difficulty, required this.width});
+  const _DifficultyCard({required this.difficulty});
 
   @override
   Widget build(BuildContext context) {
@@ -97,15 +159,22 @@ class _DifficultyCard extends StatelessWidget {
       AppTheme.accent,
       AppTheme.primary,
       Colors.deepOrange
-    ][difficulties.indexOf(difficulty) % 3];
+    ][difficulty.id == 'facil'
+        ? 0
+        : difficulty.id == 'medio'
+            ? 1
+            : 2];
 
     return Card(
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () {
+          final language =
+              languages.firstWhere((l) => l.difficulties.contains(difficulty));
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) => GameScreen(difficulty: difficulty),
+              builder: (_) =>
+                  GameScreen(language: language, difficulty: difficulty),
             ),
           );
         },

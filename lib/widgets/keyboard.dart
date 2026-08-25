@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
 class Keyboard extends StatelessWidget {
+  final List<String> alphabet;
   final void Function(String) onLetter;
   final VoidCallback onBackspace;
 
   const Keyboard({
     super.key,
+    required this.alphabet,
     required this.onLetter,
     required this.onBackspace,
   });
-
-  static const List<String> _keys = [
-    'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
-    'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
-    'Z', 'X', 'C', 'V', 'B', 'N', 'M',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +30,7 @@ class Keyboard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          ..._chunk(_keys, 10),
+          ..._chunk(alphabet, 10),
           const SizedBox(height: 8),
           Row(
             children: [
