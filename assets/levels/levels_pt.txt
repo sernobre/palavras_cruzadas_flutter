@@ -1,0 +1,178 @@
+# facil
+label: Fácil
+description: Palavras curtas do dia a dia
+## Nível 1
+SOL: Astro que ilumina o dia
+MAR: Grande extensão de água salgada
+REI: Quem governa um reino
+PAO: Alimento feito no forno
+GATO: Animal que mia
+PORTA: Abre e fecha uma entrada
+LIVRO: Onde se lê histórias
+MESA: Móvel com superfície plana
+AGUA: Líquido essencial à vida
+FOGO: Chama capaz de aquecer
+BOLA: Usada em jogos desportivos
+PE: Apoia o corpo ao andar
+MAO: Parte do corpo com dedos
+ROCHA: Pedra de grande porte
+VENTO: Ar em movimento
+FLOR: Parte colorida das plantas
+AREIA: Material fino das praias
+LUA: Satélite da Terra
+## Nível 2
+PEIXE: Animal que vive na água
+BOCA: Abre para falar e comer
+DENTE: Parte da boca para mastigar
+CABELO: Cresce na cabeça
+OLHO: Órgão da visão
+ORELHA: Órgão da audição
+VOAR: Deslocar-se pelo ar
+CORRER: Mover-se rapidamente
+DORMIR: Descansar de olhos fechados
+COMER: Ingerir alimentos
+BEBER: Ingerir líquidos
+CAO: Animal de estimação fiel
+PASSARO: Animal que voa e pia
+PATO: Ave de bico largo
+OVELHA: Dá lã e leite
+LEITE: Bebida branca
+QUEIJO: Alimento feito de leite
+OVO: Põe-se pelos pintos
+SAL: Tempero branco
+## Nível 3
+LAGO: Água fechada entre montes
+RIO: Curso de água doce
+PONTE: Passagem sobre água
+ESTRADA: Caminho para carros
+CIDADE: Núcleo urbano grande
+ALDEIA: Pequena povoação
+CAMPO: Terreno aberto
+SERRA: Cadeia de montanhas
+PRAIA: Areia à beira-mar
+FLORESTA: Muitas árvores juntas
+DESERTO: Lugar muito seco
+ILHA: Terra rodeada de água
+NUVEM: Massa branca no céu
+CHUVA: Água que cai do céu
+ESTRELA: Brilha à noite
+COMETA: Astro com cauda
+PLANETA: Gira em torno do sol
+ESPACO: O universo lá fora
+
+# medio
+label: Médio
+description: Palavras do quotidiano e da cidade
+## Nível 1
+CASA: Habitação onde se mora
+TRABALHO: Emprego ou labor
+AMIGO: Pessoa muito chegada
+ESCOLA: Local de ensino
+JANELA: Abre para o exterior
+CAMPO: Terreno aberto
+CIDADE: Núcleo urbano povoado
+MONTANHA: Elevação de terreno
+RIO: Curso de água doce
+PRAIA: Areia à beira-mar
+COMBOIO: Transporte ferroviário
+PRATO: Louça onde se serve a comida
+GARFO: Talher com dentes
+FACA: Lâmina para cortar
+LUZ: Claridade, brilho
+NOITE: Período sem sol
+DIA: Período de luz solar
+VERAO: Estação mais quente
+INVERNO: Estação mais fria
+CHUVA: Água que cai do céu
+## Nível 2
+MERCADO: Onde se compra comida
+FARMACIA: Vende medicamentos
+BANCO: Guarda o dinheiro
+IGREJA: Templo religioso
+PRACA: Largo no centro
+AVENIDA: Rua larga
+RUA: Via da cidade
+JARDIM: Espaço com plantas
+QUINTAL: Pátio posterior
+VARANDA: Sai da fachada
+COZINHA: Onde se cozinha
+QUARTO: Onde se dorme
+SALA: Onde se estar
+ESCRITORIO: Onde se trabalha
+GARAGEM: Onde se guarda o carro
+LOJA: Comércio de rua
+PARQUE: Zona verde pública
+## Nível 3
+BICICLETA: Tem duas rodas
+AUTOMOVEL: Carro de passeio
+CAMIAO: Caminhão de carga
+BARCO: Flutua na água
+AVIAO: Voa muito alto
+COMBOIO: Comboio de ferrovia
+METRO: Comboio subterrâneo
+AUTOCARRO: Transporte de passageiros
+TAXI: Carro de aluguer
+VIAGEM: Deslocação longa
+BILHETE: Permite a viagem
+ESTACAO: Paragem de transporte
+PONTE: Passagem sobre o rio
+ESTRADA: Caminho de carros
+
+# dificil
+label: Difícil
+description: Vocabulário mais longo e exigente
+## Nível 1
+BIBLIOTECA: Casa onde se guardam livros
+UNIVERSIDADE: Ensino superior
+HOSPITAL: Local de tratamento de doentes
+AEROPORTO: Local de partida de aviões
+RESTAURANTE: Onde se vai comer fora
+ELETRICIDADE: Forma de energia
+COMPUTADOR: Máquina de cálculo e escrita
+TELEMOVEL: Telefone portátil
+FOTOGRAFIA: Imagem captada por câmara
+MUSICA: Arte organizada de sons
+PINTURA: Arte de pintar quadros
+ESCRITOR: Quem escreve livros
+DOUTOR: Título académico ou médico
+PROFESSOR: Quem ensina alunos
+VIAGEM: Deslocação para longe
+PASSAPORTE: Documento de viagem
+ESTACAO: Paragem de comboio ou metro
+GOVERNO: Poder político de um país
+JUSTICA: Equidade e tribunais
+LIBERDADE: Direito de ser livre
+AVENTURA: Experiência arriscada
+NATUREZA: Mundo natural que nos rodeia
+## Nível 2
+ARQUITETURA: Arte de desenhar edifícios
+ENGENHARIA: Ciência da construção
+MEDICINA: Ciência da saúde
+DIREITO: Conjunto de leis
+HISTORIA: Estudo do passado
+GEOGRAFIA: Estudo da Terra
+BIOLOGIA: Ciência da vida
+FISICA: Ciência do movimento
+QUIMICA: Ciência das substâncias
+MATEMATICA: Ciência dos números
+INFORMATICA: Ciência dos computadores
+TECNOLOGIA: Uso prático do saber
+CIENCIA: Conhecimento sistemático
+LITERATURA: Obras escritas de arte
+FILOSOFIA: Estudo do pensamento
+ECONOMIA: Gestão de recursos
+## Nível 3
+PRESIDENTE: Chefe de um Estado
+MINISTRO: Membro do governo
+PARLAMENTO: Órgão legislativo
+ELEICAO: Escolha por voto
+DEMOCRACIA: Poder do povo
+CONSTITUICAO: Lei fundamental
+TRIBUNAL: Onde se julga
+POLICIA: Vigia a ordem
+EXERCITO: Forças armadas
+FRONTEIRA: Limite de país
+EMBAIXADA: Representação no estrangeiro
+DIPLOMACIA: Arte de negociar
+CIDADANIA: Condição de cidadão
+JUSTICA: Equidade e tribunais

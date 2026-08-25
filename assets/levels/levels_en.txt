@@ -1,0 +1,188 @@
+# facil
+label: Easy
+description: Short everyday words
+## Level 1
+SUN: Star that lights the day
+SEA: Large body of salt water
+KING: Ruler of a kingdom
+BREAD: Food baked in an oven
+CAT: Animal that meows
+DOOR: Opens and closes an entrance
+BOOK: Where stories are read
+TABLE: Furniture with a flat top
+WATER: Liquid essential to life
+FIRE: Flame that gives heat
+BALL: Used in sports
+FOOT: Body part used to walk
+HAND: Body part with fingers
+ROCK: Large stone
+WIND: Moving air
+FLOWER: Coloured part of plants
+SAND: Fine material on beaches
+MOON: Earth's satellite
+## Level 2
+FISH: Animal that lives in water
+MOUTH: Opens to speak and eat
+TOOTH: Part of the mouth to chew
+HAIR: Grows on the head
+EYE: Organ of sight
+EAR: Organ of hearing
+FLY: Move through the air
+RUN: Move quickly
+SLEEP: Rest with eyes shut
+EAT: Take in food
+DRINK: Take in liquids
+DOG: Faithful pet
+BIRD: Animal that flies and sings
+DUCK: Web-footed water bird
+SHEEP: Gives wool and milk
+MILK: White drink
+CHEESE: Food made from milk
+EGG: Laid by hens
+SALT: White seasoning
+## Level 3
+LAKE: Water enclosed by land
+RIVER: Freshwater stream
+BRIDGE: Crossing over water
+ROAD: Path for cars
+TOWN: Urban settlement
+VILLAGE: Small rural community
+FIELD: Open piece of land
+HILL: Raised land, smaller than a mountain
+BEACH: Sand by the sea
+FOREST: Many trees together
+DESERT: Very dry place
+ISLAND: Land surrounded by water
+CLOUD: White mass in the sky
+RAIN: Water falling from the sky
+STAR: Shines at night
+COMET: Tailed space object
+PLANET: Orbits the sun
+SPACE: The universe out there
+
+# medio
+label: Medium
+description: Everyday words and city life
+## Level 1
+HOUSE: Place where one lives
+WORK: Job or labour
+FRIEND: Very close person
+SCHOOL: Place of learning
+WINDOW: Opens to the outside
+FIELD: Open piece of land
+CITY: Populated urban area
+MOUNTAIN: Elevation of land
+RIVER: Freshwater stream
+BEACH: Sand by the sea
+TRAIN: Rail transport
+PLATE: Dish for serving food
+FORK: Utensil with prongs
+KNIFE: Blade for cutting
+LIGHT: Brightness
+NIGHT: Time without sun
+DAY: Time of sunlight
+SUMMER: Hottest season
+WINTER: Coldest season
+RAIN: Water falling from the sky
+## Level 2
+MARKET: Where food is bought
+PHARMACY: Sells medicines
+BANK: Keeps the money
+CHURCH: Religious temple
+SQUARE: Open public space
+AVENUE: Wide street
+STREET: Urban roadway
+GARDEN: Space with plants
+YARD: Enclosed outdoor area
+BALCONY: Sticks out from the facade
+KITCHEN: Where food is cooked
+BEDROOM: Where one sleeps
+ROOM: Where one stays
+OFFICE: Where one works
+GARAGE: Where the car is kept
+SHOP: Street commerce
+SCHOOL: Place of learning
+HOSPITAL: Place treating the sick
+PARK: Public green space
+## Level 3
+BICYCLE: Has two wheels
+CAR: Passenger automobile
+TRUCK: Heavy goods vehicle
+BOAT: Floats on water
+PLANE: Flies very high
+TRAIN: Railway transport
+METRO: Underground railway
+BUS: Passenger road vehicle
+TAXI: Hired car
+TRIP: Long journey
+TICKET: Allows the journey
+STATION: Transport stop
+BRIDGE: Crossing over a river
+ROAD: Path for cars
+ENGINE: Powers the vehicle
+WHEEL: Rounds and rolls
+SPEED: Rate of moving
+FUEL: Powers the engine
+
+# dificil
+label: Hard
+description: Longer and more demanding vocabulary
+## Level 1
+LIBRARY: Place where books are kept
+UNIVERSITY: Higher education
+HOSPITAL: Place treating the sick
+AIRPORT: Place planes depart
+RESTAURANT: Where you eat out
+ELECTRICITY: Form of energy
+COMPUTER: Machine for calculation
+MOBILE: Portable phone
+PHOTOGRAPH: Image captured by camera
+MUSIC: Art of organised sounds
+PAINTING: Art of painting
+WRITER: One who writes books
+DOCTOR: Academic title or physician
+TEACHER: One who teaches pupils
+JOURNEY: Travelling far
+PASSPORT: Travel document
+STATION: Stop for train or metro
+GOVERNMENT: Political power of a country
+JUSTICE: Fairness and courts
+FREEDOM: Right to be free
+ADVENTURE: Risky experience
+NATURE: Natural world around us
+## Level 2
+ARCHITECTURE: Art of designing buildings
+ENGINEERING: Science of construction
+MEDICINE: Science of health
+LAW: Body of rules
+HISTORY: Study of the past
+GEOGRAPHY: Study of the Earth
+BIOLOGY: Science of life
+PHYSICS: Science of motion
+CHEMISTRY: Science of substances
+MATHEMATICS: Science of numbers
+COMPUTING: Science of computers
+TECHNOLOGY: Practical use of knowledge
+SCIENCE: Systematic knowledge
+LITERATURE: Written works of art
+PHILOSOPHY: Study of thought
+ECONOMICS: Management of resources
+## Level 3
+PRESIDENT: Head of a state
+MINISTER: Member of the government
+PARLIAMENT: Legislative body
+ELECTION: Choice by vote
+DEMOCRACY: Power of the people
+CONSTITUTION: Fundamental law
+JUSTICE: Fairness and courts
+COURT: Where cases are judged
+POLICE: Keeps public order
+ARMY: Armed forces
+BORDER: Edge of a country
+EMBASSY: Representation abroad
+DIPLOMACY: Art of negotiation
+CITIZENSHIP: Status of a citizen
+GOVERNMENT: Political power of a country
+SENATE: Upper legislative chamber
+CONGRESS: Legislative assembly
+VOTE: Express a choice

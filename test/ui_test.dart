@@ -7,6 +7,7 @@ import 'package:palavrascruzadas/widgets/keyboard.dart';
 
 void main() {
   testWidgets('typing a letter shows it on the board', (tester) async {
+    final languages = await loadLanguages();
     await tester.pumpWidget(MaterialApp(
       home: GameScreen(
         language: languages.first,

@@ -4,12 +4,16 @@ import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/screens/difficulty_screen.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
-void main() {
-  runApp(const PalavrasCruzadasApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final languages = await loadLanguages();
+  runApp(PalavrasCruzadasApp(languages: languages));
 }
 
 class PalavrasCruzadasApp extends StatelessWidget {
-  const PalavrasCruzadasApp({super.key});
+  final List<Language> languages;
+
+  const PalavrasCruzadasApp({super.key, required this.languages});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +21,15 @@ class PalavrasCruzadasApp extends StatelessWidget {
       title: 'Palavras Cruzadas',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
-      home: const HomeScreen(),
+      home: HomeScreen(languages: languages),
     );
   }
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final List<Language> languages;
+
+  const HomeScreen({super.key, required this.languages});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -34,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final language = languages[_selected];
+    final language = widget.languages[_selected];
     final ui = language.ui;
     return Scaffold(
       body: SafeArea(
@@ -78,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 16),
               _LanguageSelector(
+                languages: widget.languages,
                 selected: _selected,
                 onSelect: (i) => setState(() => _selected = i),
               ),
@@ -88,7 +95,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   separatorBuilder: (context, _) => const SizedBox(height: 16),
                   itemBuilder: (context, index) {
                     final d = language.difficulties[index];
-                    return _DifficultyHomeCard(difficulty: d);
+                    return _DifficultyHomeCard(
+                      language: language,
+                      difficulty: d,
+                    );
                   },
                 ),
               ),
@@ -101,10 +111,15 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class _LanguageSelector extends StatelessWidget {
+  final List<Language> languages;
   final int selected;
   final void Function(int) onSelect;
 
-  const _LanguageSelector({required this.selected, required this.onSelect});
+  const _LanguageSelector({
+    required this.languages,
+    required this.selected,
+    required this.onSelect,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -134,9 +149,7 @@ class _LanguageSelector extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: selected == i
-                          ? Colors.white
-                          : AppTheme.muted,
+                      color: selected == i ? Colors.white : AppTheme.muted,
                     ),
                   ),
                 ),
@@ -149,9 +162,13 @@ class _LanguageSelector extends StatelessWidget {
 }
 
 class _DifficultyHomeCard extends StatelessWidget {
+  final Language language;
   final Difficulty difficulty;
 
-  const _DifficultyHomeCard({required this.difficulty});
+  const _DifficultyHomeCard({
+    required this.language,
+    required this.difficulty,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -164,9 +181,6 @@ class _DifficultyHomeCard extends StatelessWidget {
         : difficulty.id == 'medio'
             ? 1
             : 2];
-
-    final language =
-        languages.firstWhere((l) => l.difficulties.contains(difficulty));
 
     return Card(
       child: InkWell(

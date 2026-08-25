@@ -4,7 +4,11 @@ import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/models/generator.dart';
 
 void main() {
-  test('generator produces valid, conflict-free puzzles for every language', () {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('generator produces valid, conflict-free puzzles for every language',
+      () async {
+    final languages = await loadLanguages();
     for (final lang in languages) {
       final allEntries = lang.difficulties
           .expand((d) => d.levels)
@@ -40,7 +44,8 @@ void main() {
     }
   });
 
-  test('spanish alphabet keeps Ñ', () {
+  test('spanish alphabet keeps Ñ', () async {
+    final languages = await loadLanguages();
     final es = languages.firstWhere((l) => l.id == 'es');
     expect(es.alphabet.contains('Ñ'), isTrue);
     expect(normalizeWord('AÑO', es.alphabet.toSet()), equals('AÑO'));
@@ -54,7 +59,8 @@ void main() {
   });
 
   test('normalizeWord keeps only alphabet letters', () {
-    expect(normalizeWord('Coração', {'A', 'B', 'C', 'O', 'R'}), equals('CORACAO'));
+    expect(normalizeWord('Coração', {'A', 'B', 'C', 'O', 'R'}),
+        equals('CORACAO'));
     expect(normalizeWord('AÑO', {'A', 'N', 'O', 'Ñ'}), equals('AÑO'));
     expect(normalizeWord('Órgão', {'A', 'G', 'O', 'R'}), equals('ORGAO'));
   });

@@ -1,0 +1,185 @@
+# facil
+label: Fácil
+description: Palabras cortas de la vida diaria
+## Nivel 1
+SOL: Astro que ilumina el día
+MAR: Gran extensión de agua salada
+REY: Quien gobierna un reino
+PAN: Alimento hecho en el horno
+GATO: Animal que maúlla
+PUERTA: Abre y cierra una entrada
+LIBRO: Donde se leen historias
+MESA: Mueble con superficie plana
+AGUA: Líquido esencial para la vida
+FUEGO: Llama capaz de calentar
+BOLA: Usada en juegos deportivos
+PIE: Parte del cuerpo para caminar
+MANO: Parte del cuerpo con dedos
+ROCA: Piedra de gran tamaño
+VIENTO: Aire en movimiento
+FLOR: Parte colorida de las plantas
+ARENA: Material fino de las playas
+LUNA: Satélite de la Tierra
+AÑO: Período de doce meses
+NIÑO: Niño pequeño
+## Nivel 2
+PEZ: Animal que vive en el agua
+BOCA: Abre para hablar y comer
+DIENTE: Parte de la boca para masticar
+PELO: Cubre la cabeza
+OJO: Órgano de la visión
+OREJA: Órgano de la audición
+VOLAR: Desplazarse por el aire
+CORRER: Moverse rápidamente
+DORMIR: Descansar con los ojos cerrados
+COMER: Ingerir alimentos
+BEBER: Ingerir líquidos
+PERRO: Animal de compañía fiel
+PAJARO: Animal que vuela y canta
+PATO: Ave de pico ancho
+OVEJA: Da lana y leche
+LECHE: Bebida blanca
+QUESO: Alimento hecho de leche
+HUEVO: Lo ponen las gallinas
+SAL: Condimento blanco
+MUÑECO: Figura de juguete
+## Nivel 3
+LAGO: Agua cerrada entre montes
+RIO: Curso de agua dulce
+PUENTE: Paso sobre el agua
+CARRETERA: Camino para coches
+CIUDAD: Núcleo urbano grande
+ALDEA: Pequeña población
+CAMPO: Terreno abierto
+SIERRA: Cadena de montañas
+PLAYA: Arena junto al mar
+BOSQUE: Muchos árboles juntos
+DESIERTO: Lugar muy seco
+ISLA: Tierra rodeada de agua
+NUBE: Masa blanca en el cielo
+LLUVIA: Agua que cae del cielo
+ESTRELLA: Brilla de noche
+COMETA: Astro con cola
+PLANETA: Gira alrededor del sol
+ESPAÑA: País del suroeste de Europa
+
+# medio
+label: Media
+description: Palabras del día a día y de la ciudad
+## Nivel 1
+CASA: Vivienda donde se habita
+TRABAJO: Empleo u obra
+AMIGO: Persona muy cercana
+ESCUELA: Lugar de enseñanza
+VENTANA: Se abre al exterior
+CAMPO: Terreno abierto
+CIUDAD: Núcleo urbano poblado
+MONTAÑA: Elevación del terreno
+RIO: Curso de agua dulce
+PLAYA: Arena junto al mar
+TREN: Transporte ferroviario
+PLATO: Loza donde se sirve la comida
+TENEDOR: Cubierto con puntas
+CUCHILLO: Hoja para cortar
+LUZ: Claridad, brillo
+NOCHE: Periodo sin sol
+DIA: Periodo de luz solar
+VERANO: Estación más cálida
+INVIERNO: Estación más fría
+LLUVIA: Agua que cae del cielo
+ESPAÑA: País del suroeste de Europa
+MUÑECO: Figura de juguete
+## Nivel 2
+MERCADO: Donde se compra comida
+FARMACIA: Vende medicamentos
+BANCO: Guarda el dinero
+IGLESIA: Templo religioso
+PLAZA: Largo en el centro
+AVENIDA: Calle ancha
+CALLE: Vía de la ciudad
+JARDIN: Espacio con plantas
+PATIO: Solar interior
+BALCON: Sale de la fachada
+COCINA: Donde se cocina
+HABITACION: Donde se duerme
+SALA: Donde se está
+DESPACHO: Donde se trabaja
+GARAJE: Donde se guarda el coche
+TIENDA: Comercio de calle
+ESCUELA: Lugar de enseñanza
+HOSPITAL: Lugar de tratamiento
+PARQUE: Zona verde pública
+## Nivel 3
+BICICLETA: Tiene dos ruedas
+COCHE: Carro de pasajeros
+CAMION: Camión de carga
+BARCO: Flota en el agua
+AVION: Vuela muy alto
+TREN: Tren de ferrocarril
+METRO: Tren subterráneo
+AUTOBUS: Transporte de pasajeros
+TAXI: Coche de alquiler
+VIAJE: Desplazamiento lejano
+BILLETE: Permite el viaje
+ESTACION: Parada de transporte
+PUENTE: Paso sobre el río
+CARRETERA: Camino de coches
+
+# dificil
+label: Difícil
+description: Vocabulario más largo y exigente
+## Nivel 1
+BIBLIOTECA: Lugar donde se guardan libros
+UNIVERSIDAD: Enseñanza superior
+HOSPITAL: Lugar de tratamiento de enfermos
+AEROPUERTO: Lugar de salida de aviones
+RESTAURANTE: Donde se va a comer fuera
+ELECTRICIDAD: Forma de energía
+ORDENADOR: Máquina de cálculo y escritura
+TELEFONO: Aparato de comunicación
+FOTOGRAFIA: Imagen captada por cámara
+MUSICA: Arte organizada de los sonidos
+PINTURA: Arte de pintar cuadros
+ESCRITOR: Quien escribe libros
+DOCTOR: Título académico o médico
+PROFESOR: Quien enseña a alumnos
+VIAJE: Desplazamiento lejano
+PASAPORTE: Documento de viaje
+ESTACION: Parada de tren o metro
+GOBIERNO: Poder político de un país
+JUSTICIA: Equidad y tribunales
+LIBERTAD: Derecho a ser libre
+AVENTURA: Experiencia arriesgada
+NATURALEZA: Mundo natural que nos rodea
+## Nivel 2
+ARQUITECTURA: Arte de diseñar edificios
+INGENIERIA: Ciencia de la construcción
+MEDICINA: Ciencia de la salud
+DERECHO: Conjunto de leyes
+HISTORIA: Estudio del pasado
+GEOGRAFIA: Estudio de la Tierra
+BIOLOGIA: Ciencia de la vida
+FISICA: Ciencia del movimiento
+QUIMICA: Ciencia de las sustancias
+MATEMATICAS: Ciencia de los números
+INFORMATICA: Ciencia de los computadores
+TECNOLOGIA: Uso práctico del saber
+CIENCIA: Conocimiento sistemático
+LITERATURA: Obras escritas de arte
+FILOSOFIA: Estudio del pensamiento
+ECONOMIA: Gestión de recursos
+## Nivel 3
+PRESIDENTE: Jefe de un Estado
+MINISTRO: Miembro del gobierno
+PARLAMENTO: Órgano legislativo
+ELECCION: Elección por voto
+DEMOCRACIA: Poder del pueblo
+CONSTITUCION: Ley fundamental
+TRIBUNAL: Donde se juzga
+POLICIA: Vigila el orden
+EJERCITO: Fuerzas armadas
+FRONTERA: Límite de país
+EMBAJADA: Representación en el extranjero
+DIPLOMACIA: Arte de negociar
+CIUDADANIA: Condición de ciudadano
+JUSTICIA: Equidad y tribunales

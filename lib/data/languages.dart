@@ -1,7 +1,5 @@
 import '../models/crossword.dart';
-import 'words_pt.dart';
-import 'words_es.dart';
-import 'words_en.dart';
+import 'level_loader.dart';
 
 class UiStrings {
   final String appTitle;
@@ -128,26 +126,32 @@ const UiStrings _enUi = UiStrings(
   close: 'Close',
 );
 
-const List<Language> languages = [
-  Language(
-    id: 'pt',
-    label: 'Português',
-    alphabet: _azList,
-    difficulties: ptDifficulties,
-    ui: _ptUi,
-  ),
-  Language(
-    id: 'es',
-    label: 'Español',
-    alphabet: _azNList,
-    difficulties: esDifficulties,
-    ui: _esUi,
-  ),
-  Language(
-    id: 'en',
-    label: 'English',
-    alphabet: _azList,
-    difficulties: enDifficulties,
-    ui: _enUi,
-  ),
+class _LanguageDef {
+  final String id;
+  final String label;
+  final List<String> alphabet;
+  final UiStrings ui;
+
+  const _LanguageDef(this.id, this.label, this.alphabet, this.ui);
+}
+
+const List<_LanguageDef> _defs = [
+  _LanguageDef('pt', 'Português', _azList, _ptUi),
+  _LanguageDef('es', 'Español', _azNList, _esUi),
+  _LanguageDef('en', 'English', _azList, _enUi),
 ];
+
+Future<List<Language>> loadLanguages() async {
+  final List<Language> result = [];
+  for (final def in _defs) {
+    final difficulties = await loadLevelsFor(def.id);
+    result.add(Language(
+      id: def.id,
+      label: def.label,
+      alphabet: def.alphabet,
+      difficulties: difficulties,
+      ui: def.ui,
+    ));
+  }
+  return result;
+}

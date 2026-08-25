@@ -14,11 +14,11 @@ class Level {
 
 class Difficulty {
   final String id;
-  final String label;
-  final String description;
+  String label;
+  String description;
   final List<Level> levels;
 
-  const Difficulty({
+  Difficulty({
     required this.id,
     required this.label,
     required this.description,
