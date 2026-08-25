@@ -1,0 +1,99 @@
+import '../models/crossword.dart';
+
+class Difficulty {
+  final String id;
+  final String label;
+  final String description;
+  final List<Entry> entries;
+
+  const Difficulty({
+    required this.id,
+    required this.label,
+    required this.description,
+    required this.entries,
+  });
+}
+
+const List<Difficulty> difficulties = [
+  Difficulty(
+    id: 'facil',
+    label: 'Fácil',
+    description: 'Palavras curtas do dia a dia',
+    entries: [
+      Entry('SOL', 'Astro que ilumina o dia'),
+      Entry('MAR', 'Grande extensão de água salgada'),
+      Entry('REI', 'Quem governa um reino'),
+      Entry('PAO', 'Alimento feito no forno'),
+      Entry('GATO', 'Animal que mia'),
+      Entry('PORTA', 'Abre e fecha uma entrada'),
+      Entry('LIVRO', 'Onde se lê histórias'),
+      Entry('MESA', 'Móvel com superfície plana'),
+      Entry('AGUA', 'Líquido essencial à vida'),
+      Entry('FOGO', 'Chama capaz de aquecer'),
+      Entry('BOLA', 'Usada em jogos desportivos'),
+      Entry('PE', 'Apoia o corpo ao andar'),
+      Entry('MAO', 'Parte do corpo com dedos'),
+      Entry('ROCHA', 'Pedra de grande porte'),
+      Entry('VENTO', 'Ar em movimento'),
+      Entry('FLOR', 'Parte colorida das plantas'),
+      Entry('AREIA', 'Material fino das praias'),
+      Entry('LUA', 'Satélite da Terra'),
+    ],
+  ),
+  Difficulty(
+    id: 'medio',
+    label: 'Médio',
+    description: 'Palavras do quotidiano e da cidade',
+    entries: [
+      Entry('CASA', 'Habitação onde se mora'),
+      Entry('TRABALHO', 'Emprego ou labor'),
+      Entry('AMIGO', 'Pessoa muito chegada'),
+      Entry('ESCOLA', 'Local de ensino'),
+      Entry('JANELA', 'Abre para o exterior'),
+      Entry('CAMPO', 'Terreno aberto'),
+      Entry('CIDADE', 'Núcleo urbano povoado'),
+      Entry('MONTANHA', 'Elevação de terreno'),
+      Entry('RIO', 'Curso de água doce'),
+      Entry('PRAIA', 'Areia à beira-mar'),
+      Entry('COMBOIO', 'Transporte ferroviário'),
+      Entry('PRATO', 'Louça onde se serve a comida'),
+      Entry('GARFO', 'Talher com dentes'),
+      Entry('FACA', 'Lâmina para cortar'),
+      Entry('LUZ', 'Claridade, brilho'),
+      Entry('NOITE', 'Período sem sol'),
+      Entry('DIA', 'Período de luz solar'),
+      Entry('VERAO', 'Estação mais quente'),
+      Entry('INVERNO', 'Estação mais fria'),
+      Entry('CHUVA', 'Água que cai do céu'),
+    ],
+  ),
+  Difficulty(
+    id: 'dificil',
+    label: 'Difícil',
+    description: 'Vocabulário mais longo e exigente',
+    entries: [
+      Entry('BIBLIOTECA', 'Casa onde se guardam livros'),
+      Entry('UNIVERSIDADE', 'Ensino superior'),
+      Entry('HOSPITAL', 'Local de tratamento de doentes'),
+      Entry('AEROPORTO', 'Local de partida de aviões'),
+      Entry('RESTAURANTE', 'Onde se vai comer fora'),
+      Entry('ELETRICIDADE', 'Forma de energia'),
+      Entry('COMPUTADOR', 'Máquina de cálculo e escrita'),
+      Entry('TELEMOVEL', 'Telefone portátil'),
+      Entry('FOTOGRAFIA', 'Imagem captada por câmara'),
+      Entry('MUSICA', 'Arte organizada de sons'),
+      Entry('PINTURA', 'Arte de pintar quadros'),
+      Entry('ESCRITOR', 'Quem escreve livros'),
+      Entry('DOUTOR', 'Título académico ou médico'),
+      Entry('PROFESSOR', 'Quem ensina alunos'),
+      Entry('VIAGEM', 'Deslocação para longe'),
+      Entry('PASSAPORTE', 'Documento de viagem'),
+      Entry('ESTACAO', 'Paragem de comboio ou metro'),
+      Entry('GOVERNO', 'Poder político de um país'),
+      Entry('JUSTICA', 'Equidade e tribunais'),
+      Entry('LIBERDADE', 'Direito de ser livre'),
+      Entry('AVENTURA', 'Experiência arriscada'),
+      Entry('NATUREZA', 'Mundo natural que nos rodeia'),
+    ],
+  ),
+];
