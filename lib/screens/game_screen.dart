@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/models/generator.dart';
+import 'package:palavrascruzadas/services/progress.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 import 'package:palavrascruzadas/widgets/clue_panel.dart';
 import 'package:palavrascruzadas/widgets/crossword_board.dart';
 import 'package:palavrascruzadas/widgets/keyboard.dart';
+import 'package:palavrascruzadas/widgets/star_row.dart';
 
 class GameScreen extends StatefulWidget {
   final Language language;
   final Difficulty difficulty;
+  final Level level;
+  final int levelIndex;
 
   const GameScreen(
-      {super.key, required this.language, required this.difficulty});
+      {super.key,
+      required this.language,
+      required this.difficulty,
+      required this.level,
+      required this.levelIndex});
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -24,6 +32,8 @@ class _GameScreenState extends State<GameScreen> {
   final Set<String> _revealed = {};
   String? _activeKey;
   bool _activeAcross = true;
+  int _hintsUsed = 0;
+  ProgressStore? _store;
 
   late Map<String, Clue> _cellAcross;
   late Map<String, Clue> _cellDown;
@@ -31,19 +41,34 @@ class _GameScreenState extends State<GameScreen> {
 
   UiStrings get ui => widget.language.ui;
 
+  static const int freeHintsPerLevel = 5;
+
   @override
   void initState() {
     super.initState();
     _buildPuzzle();
+    ProgressStore.load().then((store) => setState(() => _store = store));
+  }
+
+  String get _levelKey =>
+      levelKey(widget.language.id, widget.difficulty.id, widget.level.name);
+
+  int? get _nextLevelIndex {
+    final levels = widget.difficulty.levels;
+    for (var i = widget.levelIndex + 1; i < levels.length; i++) {
+      if (levels[i].entries.isNotEmpty) return i;
+    }
+    return null;
   }
 
   void _buildPuzzle() {
-    final entries = [...widget.difficulty.entries];
+    final entries = [...widget.level.entries];
     entries.shuffle();
     _puzzle = generateCrossword(entries,
         alphabet: widget.language.alphabet.toSet());
     _userInput.clear();
     _revealed.clear();
+    _hintsUsed = 0;
     _cellAcross = {};
     _cellDown = {};
     _cellNumber = {};
@@ -144,13 +169,58 @@ class _GameScreenState extends State<GameScreen> {
       return got != expected;
     }).toList();
     if (wrong.isEmpty) return;
+
+    final isPro = _store?.isPro ?? false;
+    if (!isPro && _hintsUsed >= freeHintsPerLevel) {
+      _showProDialog();
+      return;
+    }
+
     wrong.shuffle();
     final key = wrong.first;
     setState(() {
       _userInput[key] = _puzzle.solution[key]!;
       _revealed.add(key);
       _activeKey = key;
+      _hintsUsed++;
     });
+  }
+
+  void _showProDialog() {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text('Dicas esgotadas'),
+        content: const Text(
+            'Usaste as tuas dicas grátis deste nível. Desbloqueia o Pro para '
+            'ter dicas ilimitadas e sem anúncios.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Mais tarde'),
+          ),
+          FilledButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _unlockPro();
+            },
+            child: const Text('Desbloquear Pro'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _unlockPro() async {
+    final store = _store ?? await ProgressStore.load();
+    await store.setPro(true);
+    setState(() => _store = store);
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pro desbloqueado (demonstração local).')),
+      );
+    }
   }
 
   void _clear() {
@@ -168,8 +238,22 @@ class _GameScreenState extends State<GameScreen> {
     final total = _puzzle.solution.length;
     final correct = _filledCount;
     final solved = correct == total;
+
+    int stars = 0;
+    if (solved) {
+      stars = _hintsUsed == 0
+          ? 3
+          : _hintsUsed <= 2
+              ? 2
+              : 1;
+      _store?.recordStars(_levelKey, stars);
+    }
+
+    final nextIndex = _nextLevelIndex;
+
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (_) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
@@ -180,13 +264,49 @@ class _GameScreenState extends State<GameScreen> {
             Text(solved ? ui.solvedTitle : ui.statusTitle),
           ],
         ),
-        content: Text(solved ? ui.solvedBody : ui.statusBody(correct, total)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(solved ? ui.solvedBody : ui.statusBody(correct, total)),
+            if (solved) ...[
+              const SizedBox(height: 12),
+              Center(child: StarRow(stars: stars, size: 34)),
+            ],
+          ],
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(ui.close),
           ),
-          if (solved)
+          if (solved && nextIndex == null)
+            FilledButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text('Concluído'),
+            ),
+          if (solved && nextIndex != null)
+            FilledButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => GameScreen(
+                      language: widget.language,
+                      difficulty: widget.difficulty,
+                      level: widget.difficulty.levels[nextIndex],
+                      levelIndex: nextIndex,
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Próximo nível'),
+            ),
+          if (!solved)
             FilledButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -204,7 +324,7 @@ class _GameScreenState extends State<GameScreen> {
     final clue = _activeClue;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.difficulty.label),
+        title: Text('${widget.difficulty.label} · ${widget.level.name}'),
         actions: [
           IconButton(
             tooltip: ui.clues,

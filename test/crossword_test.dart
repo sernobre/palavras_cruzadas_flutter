@@ -6,8 +6,12 @@ import 'package:palavrascruzadas/models/generator.dart';
 void main() {
   test('generator produces valid, conflict-free puzzles for every language', () {
     for (final lang in languages) {
+      final allEntries = lang.difficulties
+          .expand((d) => d.levels)
+          .expand((l) => l.entries)
+          .toList();
       final puzzle = generateCrossword(
-        lang.difficulties.expand((d) => d.entries).toList(),
+        allEntries,
         alphabet: lang.alphabet.toSet(),
       );
 

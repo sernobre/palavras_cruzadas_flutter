@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
-import 'package:palavrascruzadas/screens/game_screen.dart';
+import 'package:palavrascruzadas/screens/difficulty_screen.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
 void main() {
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   separatorBuilder: (context, _) => const SizedBox(height: 16),
                   itemBuilder: (context, index) {
                     final d = language.difficulties[index];
-                    return _DifficultyCard(difficulty: d);
+                    return _DifficultyHomeCard(difficulty: d);
                   },
                 ),
               ),
@@ -148,10 +148,10 @@ class _LanguageSelector extends StatelessWidget {
   }
 }
 
-class _DifficultyCard extends StatelessWidget {
+class _DifficultyHomeCard extends StatelessWidget {
   final Difficulty difficulty;
 
-  const _DifficultyCard({required this.difficulty});
+  const _DifficultyHomeCard({required this.difficulty});
 
   @override
   Widget build(BuildContext context) {
@@ -165,16 +165,19 @@ class _DifficultyCard extends StatelessWidget {
             ? 1
             : 2];
 
+    final language =
+        languages.firstWhere((l) => l.difficulties.contains(difficulty));
+
     return Card(
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () {
-          final language =
-              languages.firstWhere((l) => l.difficulties.contains(difficulty));
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) =>
-                  GameScreen(language: language, difficulty: difficulty),
+              builder: (_) => DifficultyScreen(
+                language: language,
+                difficulty: difficulty,
+              ),
             ),
           );
         },
@@ -211,6 +214,11 @@ class _DifficultyCard extends StatelessWidget {
                     Text(difficulty.description,
                         style: const TextStyle(
                             color: AppTheme.muted, fontSize: 14)),
+                    const SizedBox(height: 2),
+                    Text(
+                        '${difficulty.levels.where((l) => l.entries.isNotEmpty).length} níveis',
+                        style: const TextStyle(
+                            color: AppTheme.muted, fontSize: 12)),
                   ],
                 ),
               ),

@@ -5,17 +5,24 @@ class Entry {
   const Entry(this.word, this.clue);
 }
 
+class Level {
+  final String name;
+  final List<Entry> entries;
+
+  const Level({required this.name, required this.entries});
+}
+
 class Difficulty {
   final String id;
   final String label;
   final String description;
-  final List<Entry> entries;
+  final List<Level> levels;
 
   const Difficulty({
     required this.id,
     required this.label,
     required this.description,
-    required this.entries,
+    required this.levels,
   });
 }
 
