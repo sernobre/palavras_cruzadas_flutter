@@ -63,6 +63,145 @@ COMETA: Astro con cola
 PLANETA: Gira alrededor del sol
 ESPAÑA: País del suroeste de Europa
 
+## Nivel 4 - Reino Animal
+LEON: Rey de la selva de melena dorada
+TIGRE: Felino a rayas anaranjado
+CEBRA: Caballo a rayas blanco y negro
+PANDA: Oso que adora el bambú
+CONEJO: Salta con orejas largas
+MONO: Trepa árboles y come plátanos
+RANA: Anfibio que croa en la charca
+BALLENA: Gigante gentil de los océanos
+DELFIN: Mamífero marino muy inteligente
+LORO: Ave colorida que imita voces
+PINGUINO: Ave del hielo que no vuela
+ABEJA: Insecto productor de miel
+MARIPOSA: Insecto de alas coloridas
+TORTUGA: Reptil de caparazón lento
+CANGURO: Salta con bolsa en la barriga
+JIRAFA: Cuello más alto de la sabana
+
+## Nivel 5 - Sabores de la Cocina
+PIMIENTA: Condimento que pica en la lengua
+ARROZ: Base blanca de muchas comidas
+FRIJOL: Grano compañero del arroz
+PATATA: Tubérculo frito o cocido
+TOMATE: Fruto rojo para ensalada
+ZANAHORIA: Hortaliza naranja buena para la vista
+LECHUGA: Hoja verde de la ensalada
+PLATANO: Fruta amarilla y dulce
+FRESA: Frutita roja y dulce
+UVA: Fruta en racimo que hace vino
+LIMON: Cítrico ácido y refrescante
+NARANJA: Cítrico dulce rico en vitamina C
+PASTEL: Dulce de horno para fiestas
+MIEL: Dulce dorado hecho por abejas
+MANTEQUILLA: Crema amarillenta para el pan
+ACEITE: Oro líquido del olivo
+
+## Nivel 6 - Colores y Formas
+AZUL: Color del cielo limpio
+VERDE: Color de la hierba y las hojas
+AMARILLO: Color del sol brillante
+ROJO: Color de la fresa madura
+NARANJA: Color entre rojo y amarillo
+MORADO: Color de la uva y la lavanda
+ROSA: Color suave de flores delicadas
+GRIS: Color de las nubes cargadas
+BLANCO: Color de la nieve pura
+NEGRO: Color de la noche sin luna
+CIRCULO: Forma redonda sin esquinas
+CUADRADO: Forma con cuatro lados iguales
+TRIANGULO: Forma con tres puntas
+ESTRELLA: Forma con cinco puntas que brilla
+RECTANGULO: Cuadrilátero alargado
+CORAZON: Forma del amor dibujada
+
+## Nivel 7 - Cuerpo Humano
+CEREBRO: Órgano que piensa y manda todo
+CORAZON: Late sin parar en el pecho
+PULMON: Respira aire para la sangre
+ESTOMAGO: Digiere lo que comemos
+HUESO: Estructura dura que sostiene el cuerpo
+SANGRE: Líquido rojo que corre por las venas
+PIEL: Cubre y protege todo el cuerpo
+MUSCULO: Hace que el cuerpo se mueva con fuerza
+OJO: Ve colores y formas
+NARIZ: Huele perfumes y aromas
+BOCA: Habla y saborea alimentos
+RODILLA: Dobla la pierna al caminar
+HOMBRO: Une el brazo al tronco
+PELO: Hilos que crecen en la cabeza
+UNA: Protege la punta de los dedos
+SONRISA: Curva que ilumina el rostro
+
+## Nivel 8 - Dulce Hogar
+COCINA: Donde se preparan comidas
+SALA: Donde la familia se reúne
+DORMITORIO: Donde se duerme y se sueña
+VENTANA: Deja entrar luz y aire
+PUERTA: Abre paso entre habitaciones
+ESPEJO: Refleja tu imagen
+ALMOHADA: Suave para apoyar la cabeza
+MANTA: Calienta en noches frías
+CORTINA: Viste la ventana con tela
+CAJON: Guarda objetos en la cómoda
+ESCALERA: Une una planta con otra
+TEJADO: Cubre la casa de la lluvia
+LLAVE: Abre la cerradura de la puerta
+CHIMENEA: Calienta la sala en invierno
+ALFOMBRA: Cubre el suelo con confort
+
+## Nivel 9 - Parque y Diversión
+COLUMPIO: Va y viene empujando en el aire
+TOBOGAN: Desliza riendo hasta el suelo
+MUNECA: Juguete con forma de niña
+COCHECITO: Juguete con cuatro ruedas
+PELOTA: Salta y rueda en todo juego
+TROMPO: Gira sin parar en el suelo
+COMETA: Sube alto con el viento
+PAYASO: Hace reír con nariz roja
+FIESTA: Reunión alegre con música
+MUSICA: Sonido que hace bailar
+BAILE: Cuerpo en movimiento rítmico
+JUEGO: Desafío divertido con reglas
+AMIGO: Compañero de juegos
+RISA: Sonido de quien está feliz
+CARRUSEL: Caballos que giran con música
+
+## Nivel 10 - Transporte del Futuro
+TUNEL: Pasaje subterráneo para coches
+PUENTE: Une orillas sobre el río
+CARRETERA: Franja para coches veloces
+BICICLETA: Dos ruedas a pedales
+MOTO: Dos ruedas con motor veloz
+TREN: Serpiente larga sobre rieles
+METRO: Tren que corre bajo tierra
+TRANVIA: Vagón sobre rieles en la ciudad
+BARCO: Casa flotante sobre el agua
+NAVIo: Gigante de mares y océanos
+AVION: Pájaro de metal en el cielo
+HELICOPTERO: Hélice que sube vertical
+COHETE: Dispara veloz al espacio
+DRON: Robot volador con hélices
+
+## Nivel 11 - Jardín Secreto
+ROSA: Reina perfumada de las flores
+TULIPAN: Cáliz colorido de primavera
+GIRASOL: Flor que sigue al sol
+MARGARITA: Flor blanca de centro dorado
+LAVANDA: Perfume morado de los campos
+CACTUS: Planta espinosa del desierto
+HELECHO: Hoja verde calada
+HUERTA: Rincón de verduras frescas
+SEMILLA: Comienzo minúsculo de una planta
+RIEGO: Agua que alimenta el jardín
+ABEJA: Polinizadora dorada y rayada
+MARIQUITA: Escarabajo rojo de puntos negros
+MARIPOSA: Bailarina colorida del jardín
+MACETA: Casa de barro para plantas
+
+
 # medio
 label: Media
 description: Palabras del día a día y de la ciudad
@@ -125,6 +264,108 @@ ESTACION: Parada de transporte
 PUENTE: Paso sobre el río
 CARRETERA: Camino de coches
 
+## Nivel 4 - Naturaleza Salvaje
+VOLCAN: Montaña que escupe lava caliente
+CASCADA: Caída de agua impresionante
+CAVERNA: Gruta oscura en la montaña
+OCEANO: Inmenso mar que cubre la Tierra
+SELVA: Bosque denso y húmedo
+CANON: Valle profundo entre rocas
+GLACIAR: Río gigante de hielo eterno
+AURORA: Luces coloridas del polo
+ECLIPSE: Sol o luna escondidos por sombra
+TORNADO: Viento en espiral destructor
+HURACAN: Tormenta gigante de los mares
+ARCOIRIS: Arco colorido tras la lluvia
+SEMILLA: Origen minúsculo de toda planta
+COLMENA: Casa de abejas trabajadoras
+PANTANO: Tierra anegada misteriosa
+
+## Nivel 5 - Profesiones del Mundo
+MEDICO: Cuida la salud de las personas
+ENFERMERO: Ayuda al médico y cuida enfermos
+PROFESOR: Enseña con paciencia en la escuela
+INGENIERO: Proyecta puentes y edificios
+ARQUITECTO: Dibuja casas y ciudades
+ABOGADO: Defiende la justicia en el tribunal
+PERIODISTA: Cuenta noticias al mundo
+COCINERO: Crea platos deliciosos
+BOMBERO: Apaga fuegos y salva vidas
+POLICIA: Protege el orden en la ciudad
+PILOTO: Conduce aviones en el cielo
+MARINERO: Navega por los océanos
+AGRICULTOR: Cultiva la tierra y cosecha
+ARTISTA: Crea belleza con las manos
+CIENTIFICO: Investiga secretos de la naturaleza
+
+## Nivel 6 - Deporte y Campeones
+FUTBOL: Juego del balón con el pie más popular
+BALONCESTO: Balón a la canasta con las manos
+TENIS: Raqueta y pelota en la pista
+NATACION: Deslizarse veloz en el agua
+ATLETISMO: Correr saltar y lanzar
+GIMNASIA: Cuerpo flexible y elegante
+CICLISMO: Pedalear veloz en la carretera
+SURF: Deslizarse en las olas del mar
+BOXEO: Lucha con guantes en el ring
+JUDO: Arte marcial del equilibrio
+MARATON: Carrera larga de 42 km
+MEDALLA: Premio de oro plata y bronce
+TORNEO: Competición entre equipos
+CAMPEON: Vencedor que levanta la copa
+ESTADIO: Escenario gigante de juegos
+
+## Nivel 7 - Sabores del Mundo
+SUSHI: Delicia japonesa con pescado y arroz
+PAELLA: Arroz español con marisco dorado
+LASANA: Capas italianas de pasta y queso
+FEIJOADA: Plato brasileño rico y tradicional
+TACO: Tortilla mexicana bien rellena
+KEBAB: Carne en pincho de Oriente Medio
+CURRY: Condimento indio aromático y picante
+CUSCUS: Sémola dorada del Norte de África
+BACALAO: Rey de la mesa portuguesa
+EMPANADA: Masa frita rellena y crujiente
+ACEITE: Oro líquido del olivo
+MOQUECA: Guiso bahiano de pescado
+BARBACOA: Carne a la brasa suculenta
+VINO: Bebida de la uva fermentada
+COCO: Fruto tropical de agua dulce
+
+## Nivel 8 - Música y Ritmo
+GUITARRA: Cuerdas que cantan con los dedos
+PIANO: Teclas blancas y negras armoniosas
+VIOLIN: Arco que hace llorar las cuerdas
+BATERIA: Tambores que marcan el ritmo
+TROMPETA: Soplo dorado y brillante
+SAXOFON: Soplo suave del jazz
+FADO: Canción portuguesa llena de saudade
+SAMBA: Ritmo brasileño que hace bailar
+ROCK: Energía eléctrica de las guitarras
+JAZZ: Improvisación elegante americana
+OPERA: Teatro cantado grandioso
+CORO: Voces juntas en armonía
+MELODIA: Secuencia bonita de notas
+RITMO: Pulsación que hace mover el cuerpo
+CONCIERTO: Espectáculo de música en vivo
+
+## Nivel 9 - Aventura y Viaje
+MOCHILA: Casa a la espalda del viajero
+MAPA: Dibuja el mundo en papel
+BRUJULA: Siempre apunta al norte
+TIENDA: Casa de tela para acampar
+SENDERO: Camino estrecho en la naturaleza
+MIRADOR: Vista increíble desde lo alto
+FARO: Luz que guía a los navegantes
+PUERTO: Refugio seguro para barcos
+PASAPORTE: Llave para cruzar fronteras
+SELLO: Marca del viaje en el papel
+RECUERDO: Memoria querida del viaje
+AVENTURA: Historia vivida con emoción
+EXPLORAR: Descubrir lo desconocido
+TRAVESIA: Largo camino de descubrimientos
+
+
 # dificil
 label: Difícil
 description: Vocabulario más largo y exigente
@@ -183,3 +424,108 @@ EMBAJADA: Representación en el extranjero
 DIPLOMACIA: Arte de negociar
 CIUDADANIA: Condición de ciudadano
 JUSTICIA: Equidad y tribunales
+
+## Nivel 4 - Exploración Espacial
+GALAXIA: Conjunto gigante de estrellas
+NEBULOSA: Nube cósmica colorida
+AGUJERONEGRO: Nada escapa a su gravedad
+TELESCOPIO: Ojo gigante para el universo
+ASTRONAUTA: Viajero del espacio sideral
+SATELITE: Objeto que orbita un planeta
+GRAVEDAD: Fuerza que sujeta todo al suelo
+ORBITA: Camino circular en el espacio
+COHETE: Dispara veloz al espacio
+ESTACIONESPACIAL: Casa orbitando la Tierra
+CONSTELACION: Dibujo de estrellas en el cielo
+SUPERNOVA: Explosión colosal de estrella
+ASTEROIDE: Roca errante en el espacio
+COMETA: Bola de hielo con cola brillante
+COSMONAUTA: Astronauta ruso en el espacio
+INTERESTELAR: Viaje entre las estrellas
+
+## Nivel 5 - Ciencia e Invención
+LABORATORIO: Taller de experimentos
+MICROSCOPIO: Lupa gigante para lo invisible
+MOLECULA: Bloque de la materia
+ELECTRON: Partícula veloz del átomo
+GENETICA: Código de la vida en el ADN
+BATERIA: Caja que guarda energía
+ROBOTICA: Máquinas que imitan humanos
+ALGORITMO: Receta lógica del ordenador
+INTERNET: Red mundial que conecta a todos
+VACUNA: Escudo contra enfermedades
+ANTIBIOTICO: Arma contra bacterias
+CLONACION: Copia idéntica de un ser vivo
+EVOLUCION: Cambio lento de las especies
+FOSIL: Memoria de piedra de seres antiguos
+INNOVACION: Idea nueva que cambia el mundo
+
+## Nivel 6 - Historia e Imperios
+PIRAMIDE: Tumba gigante de los faraones
+FARAON: Rey dios del Egipto antiguo
+COLISEO: Arena de gladiadores romanos
+IMPERIO: Tierras vastas de un solo señor
+CATEDRAL: Iglesia gigante medieval
+CASTILLO: Fortaleza de piedra de reyes
+CABALLERO: Guerrero de armadura y espada
+DESCUBRIMIENTO: Viaje que abrió el mundo
+CARABELA: Barco de navegantes portugueses
+REVOLUCION: Cambio brusco en la historia
+MONARQUIA: Gobierno de un solo rey
+REPUBLICA: Gobierno del pueblo
+ARQUEOLOGIA: Excava secretos del pasado
+MITOLOGIA: Historias de dioses antiguos
+
+## Nivel 7 - Capitales del Mundo
+LISBOA: Capital a orillas del Tajo
+MADRID: Capital en el corazón de España
+PARIS: Capital de la luz y la torre de hierro
+ROMA: Capital eterna de los césares
+LONDRES: Capital del Big Ben y el Támesis
+BERLIN: Capital en la puerta de Brandeburgo
+TOKIO: Capital neón de Japón
+PEKIN: Capital de la Ciudad Prohibida
+NUEVADELHI: Capital vibrante de la India
+BRASILIA: Capital diseñada en el Altiplano
+OTTAWA: Capital fría de Canadá
+CANBERRA: Capital planeada de Australia
+ELCAIRO: Capital a la sombra de pirámides
+ATENAS: Capital cuna de la democracia
+OSLO: Capital de los fiordos helados
+REIKIAVIK: Capital más al norte del mundo
+
+## Nivel 8 - Cine y Literatura
+CINE: Fábrica de sueños en 24 fotogramas
+DIRECTOR: Manda la cámara y los actores
+GUION: Mapa escrito de una película
+ANIMACION: Dibujo que cobra vida
+DOCUMENTAL: Película que muestra la realidad
+FESTIVAL: Celebración de películas y premios
+OSCAR: Estatua dorada del cine
+BESTSELLER: Libro muy vendido
+NOVELA: Historia larga de amor o aventura
+POESIA: Música hecha solo de palabras
+CRONICA: Retrato del día a día con arte
+BIBLIOTECA: Tesoro infinito de libros
+EDITORIAL: Casa que da vida a los libros
+PERSONAJE: Alma ficticia de una historia
+NARRADOR: Voz que cuenta la historia
+
+## Nivel 9 - Mitología y Misterios
+ZEUS: Rey de los dioses del Olimpo
+POSEIDON: Dios de mares y terremotos
+ATENEA: Diosa de la sabiduría y guerra
+APOLO: Dios del sol y la música
+ARTEMISA: Diosa de la luna y la caza
+HERCULES: Héroe de fuerza colosal
+MINOTAURO: Toro hombre del laberinto
+FENIX: Ave que renace de las cenizas
+ATLANTIDA: Continente perdido en el mar
+ORACULO: Voz que predice el futuro
+ENIGMA: Misterio difícil de descifrar
+LEYENDA: Historia susurrada por el tiempo
+PROFECIA: Previsión de lo que vendrá
+DESTINO: Camino escrito en las estrellas
+OLIMPO: Morada de los dioses griegos
+
+

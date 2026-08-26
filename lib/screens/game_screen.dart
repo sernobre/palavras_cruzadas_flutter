@@ -39,6 +39,10 @@ class _GameScreenState extends State<GameScreen> {
   late Map<String, Clue> _cellDown;
   late Map<String, int> _cellNumber;
 
+  // C+D: filtered keyboard per difficulty
+  List<String> _keyboardLetters = [];
+  bool _showFullAlphabet = false;
+
   UiStrings get ui => widget.language.ui;
 
   bool get _isDaily => widget.difficulty.id == 'diario';
@@ -90,6 +94,37 @@ class _GameScreenState extends State<GameScreen> {
         ? _puzzle.acrossClues.first.cells.first.key
         : null;
     _activeAcross = true;
+    _updateKeyboardLetters();
+  }
+
+  void _updateKeyboardLetters() {
+    final needed = _puzzle.solution.values.toSet();
+    // Fallback for empty puzzle
+    if (needed.isEmpty) {
+      _keyboardLetters = List<String>.from(widget.language.alphabet);
+      return;
+    }
+    final isHard = widget.difficulty.id == 'dificil' || _isDaily;
+    if (isHard) {
+      // C: difícil/diário -> alfabeto completo
+      _keyboardLetters = List<String>.from(widget.language.alphabet);
+    } else if (widget.difficulty.id == 'medio') {
+      // C: médio -> solução + 5 distratores, ordenado pela ordem do alfabeto
+      final pool =
+          widget.language.alphabet.where((c) => !needed.contains(c)).toList();
+      pool.shuffle();
+      final extras = pool.take(5).toSet();
+      final combined = {...needed, ...extras};
+      _keyboardLetters =
+          widget.language.alphabet.where(combined.contains).toList();
+    } else {
+      // C: fácil (e outros) -> só letras da solução
+      _keyboardLetters =
+          widget.language.alphabet.where(needed.contains).toList();
+      if (_keyboardLetters.isEmpty) {
+        _keyboardLetters = List<String>.from(widget.language.alphabet);
+      }
+    }
   }
 
   Clue? get _activeClue {
@@ -348,6 +383,14 @@ class _GameScreenState extends State<GameScreen> {
               );
             },
           ),
+          // D: toggle alfabeto filtrado <-> completo
+          IconButton(
+            tooltip: _showFullAlphabet ? 'Teclado filtrado' : 'Alfabeto completo',
+            icon: Icon(_showFullAlphabet
+                ? Icons.filter_alt_rounded
+                : Icons.abc_rounded),
+            onPressed: () => setState(() => _showFullAlphabet = !_showFullAlphabet),
+          ),
           IconButton(
             tooltip: 'Novo puzzle',
             icon: const Icon(Icons.refresh_rounded),
@@ -411,7 +454,11 @@ class _GameScreenState extends State<GameScreen> {
             ),
           ),
           Keyboard(
-            alphabet: widget.language.alphabet,
+            alphabet: _showFullAlphabet
+                ? widget.language.alphabet
+                : (_keyboardLetters.isEmpty
+                    ? widget.language.alphabet
+                    : _keyboardLetters),
             onLetter: _inputLetter,
             onBackspace: _backspace,
           ),

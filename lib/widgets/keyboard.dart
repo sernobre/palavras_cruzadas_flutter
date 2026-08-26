@@ -48,25 +48,40 @@ class Keyboard extends StatelessWidget {
     );
   }
 
-  List<Widget> _chunk(List<String> keys, int size) {
+  List<Widget> _chunk(List<String> keys, int maxPerRow) {
+    if (keys.isEmpty) return [];
+    // Distribui equilibrado: 12 letras => 6+6 em vez de 10+2, 26 => 9+9+8
+    final rowCount = (keys.length / maxPerRow).ceil().clamp(1, 10);
+    final base = keys.length ~/ rowCount;
+    final remainder = keys.length % rowCount;
     final rows = <Widget>[];
-    for (var i = 0; i < keys.length; i += size) {
-      final end = (i + size < keys.length) ? i + size : keys.length;
-      final rowKeys = keys.sublist(i, end);
+    var offset = 0;
+    for (var r = 0; r < rowCount; r++) {
+      final count = base + (r < remainder ? 1 : 0);
+      final rowKeys = keys.sublist(offset, offset + count);
+      offset += count;
       rows.add(Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: rowKeys
-              .map((k) => Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 3),
-                      child: _KeyButton(
-                        onTap: () => onLetter(k),
-                        child: Text(k,
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                                color: AppTheme.primaryDark)),
+              .map((k) => Flexible(
+                    // Flexible + ConstrainedBox mantém botões equilibrados e não gigantes
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minWidth: 32,
+                        maxWidth: 48,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        child: _KeyButton(
+                          onTap: () => onLetter(k),
+                          child: Text(k,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppTheme.primaryDark)),
+                        ),
                       ),
                     ),
                   ))

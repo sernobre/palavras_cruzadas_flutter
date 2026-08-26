@@ -72,7 +72,7 @@ const List<String> _azNList = [..._azList, 'Ñ'];
 
 const UiStrings _ptUi = UiStrings(
   appTitle: 'Palavras Cruzadas',
-  subtitle: 'Português de Portugal',
+  subtitle: 'Português',
   homeHint:
       'Escolhe um nível de dificuldade para começar a resolver o puzzle.',
   clues: 'Pistas',

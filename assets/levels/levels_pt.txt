@@ -60,6 +60,144 @@ COMETA: Astro com cauda
 PLANETA: Gira em torno do sol
 ESPACO: O universo lá fora
 
+## Nível 4 - Reino Animal
+LEAO: Rei da selva de juba dourada
+TIGRE: Felino às riscas alaranjadas
+ZEBRA: Cavalo às riscas preto e branco
+PANDA: Urso que adora bambu
+COELHO: Salta com orelhas compridas
+MACACO: Trepa árvores e come bananas
+SAPO: Anfíbio que coaxa na lagoa
+BALEIA: Gigante gentil dos oceanos
+GOLFINHO: Mamífero marinho muito inteligente
+PAPAGAIO: Ave colorida que imita vozes
+PINGUIM: Ave do gelo que não voa
+ABELHA: Inseto produtor de mel
+BORBOLETA: Inseto de asas coloridas
+TARTARUGA: Réptil de carapaça lenta
+CANGURU: Salta com bolsa na barriga
+GIRAFA: Pescoço mais alto da savana
+
+## Nível 5 - Sabores da Cozinha
+PIMENTA: Tempero que pica na língua
+ARROZ: Base branca de muitas refeições
+FEIJAO: Grão companheiro do arroz
+BATATA: Tubérculo frito ou cozido
+TOMATE: Fruto vermelho para salada
+CENOURA: Legume laranja bom para a visão
+ALFACE: Folha verde da salada
+BANANA: Fruta amarela e doce
+MORANGO: Frutinha vermelha e doce
+UVA: Fruta em cacho que faz vinho
+LIMAO: Citrino azedo e refrescante
+LARANJA: Citrino doce rico em vitamina C
+BOLO: Doce de forno para festas
+MEL: Doce dourado feito por abelhas
+MANTEIGA: Creme amarelado para o pão
+AZEITE: Ouro líquido da oliveira
+
+## Nível 6 - Cores e Formas
+AZUL: Cor do céu limpo
+VERDE: Cor da relva e das folhas
+AMARELO: Cor do sol brilhante
+VERMELHO: Cor do morango maduro
+LARANJA: Cor entre vermelho e amarelo
+ROXO: Cor da uva e da lavanda
+ROSA: Cor suave das flores delicadas
+CINZA: Cor das nuvens carregadas
+BRANCO: Cor da neve pura
+PRETO: Cor da noite sem lua
+CIRCULO: Forma redonda sem cantos
+QUADRADO: Forma com quatro lados iguais
+TRIANGULO: Forma com três pontas
+ESTRELA: Forma com cinco pontas que brilha
+RETANGULO: Quadrilátero alongado
+CORACAO: Forma do amor desenhada
+
+## Nível 7 - Corpo Humano
+CEREBRO: Órgão que pensa e comanda tudo
+CORACAO: Bate sem parar no peito
+PULMAO: Respira o ar para o sangue
+ESTOMAGO: Digere o que comemos
+OSSO: Estrutura dura que sustenta o corpo
+SANGUE: Líquido vermelho que corre nas veias
+PELE: Cobre e protege todo o corpo
+MUSCULO: Faz o corpo mexer com força
+OLHO: Vê cores e formas
+NARIZ: Cheira perfumes e aromas
+JOELHO: Dobra a perna ao caminhar
+OMBRO: Liga o braço ao tronco
+CABELO: Fios que crescem na cabeça
+UNHA: Protege a ponta dos dedos
+SORRISO: Curva que ilumina o rosto
+
+## Nível 8 - Casa Doce Lar
+COZINHA: Onde se preparam refeições
+SALA: Onde a família se reúne
+QUARTO: Onde se dorme e sonha
+JANELA: Deixa entrar luz e ar
+PORTA: Abre passagem entre divisões
+ESPELHO: Reflete a tua imagem
+ALMOFADA: Macia para apoiar a cabeça
+COBERTOR: Aquece nas noites frias
+CORTINA: Veste a janela com tecido
+GAVETA: Guarda objetos na cómoda
+ESCADA: Liga um andar ao outro
+TELHADO: Cobre a casa da chuva
+CHAVE: Abre a fechadura da porta
+LAreira: Lareira aquece a sala no inverno
+TAPETE: Cobre o chão com conforto
+
+## Nível 9 - Parque e Diversão
+BALOICO: Vai e vem a empurrar no ar
+ESCORREGA: Desliza a rir até ao chão
+BONECA: Brinquedo com forma de menina
+CARRINHO: Brinquedo com quatro rodas
+BOLA: Salta e rola em todo o jogo
+PIAO: Roda sem parar no chão
+PAPAGAIO: Sobe alto com o vento
+PALHACO: Faz rir com nariz vermelho
+FESTA: Reunião alegre com música
+MUSICA: Som que faz dançar
+DANCA: Corpo em movimento ritmado
+JOGO: Desafio divertido com regras
+AMIGO: Companheiro de brincadeiras
+RISO: Som de quem está feliz
+CARROSSEL: Cavalos que giram ao som
+
+## Nível 10 - Transportes do Futuro
+TUNEL: Passagem subterrânea para carros
+PONTE: Liga margens sobre o rio
+ESTRADA: Faixa para carros velozes
+BICICLETA: Duas rodas movidas a pedal
+MOTA: Duas rodas com motor veloz
+COMBOIO: Longa serpente sobre carris
+METRO: Comboio que corre sob a terra
+ELETRICO: Carruagem sobre carris na cidade
+BARCO: Casa flutuante sobre a água
+NAVIO: Gigante dos mares e oceanos
+AVIAO: Pássaro de metal no céu
+HELICOPTERO: Hélice que sobe vertical
+FOGUETE: Dispara veloz para o espaço
+DRONE: Robô voador com hélices
+
+## Nível 11 - Jardim Secreto
+ROSA: Rainha perfumada das flores
+TULIPA: Cálice colorido da primavera
+GIRASSOL: Flor que segue o sol
+MARGARIDA: Flor branca de centro dourado
+LAVANDA: Perfume roxo dos campos
+CACTO: Planta espinhosa do deserto
+SAMAMBAIA: Folha verde rendilhada
+HORTA: Cantinho de legumes frescos
+SEMENTE: Começo minúsculo de uma planta
+REGA: Água que alimenta o jardim
+ABELHA: Polinizadora dourada e listrada
+JOANINHA: Besouro vermelho de pintas pretas
+BORBOLETA: Bailarina colorida do jardim
+VASO: Casa de barro para plantas
+
+
 # medio
 label: Médio
 description: Palavras do quotidiano e da cidade
@@ -117,6 +255,108 @@ BILHETE: Permite a viagem
 ESTACAO: Paragem de transporte
 PONTE: Passagem sobre o rio
 ESTRADA: Caminho de carros
+
+## Nível 4 - Natureza Selvagem
+VULCAO: Montanha que cospe lava quente
+CACHOEIRA: Queda de água impressionante
+CAVERNA: Gruta escura na montanha
+OCEANO: Imenso mar que cobre a Terra
+SELVA: Floresta densa e húmida
+CANYON: Vale profundo entre rochas
+GLACIAR: Rio gigante de gelo eterno
+AURORA: Luzes coloridas do polo
+ECLIPSE: Sol ou lua escondidos por sombra
+TORNADO: Vento em espiral destruidor
+FURACAO: Tempestade gigante dos mares
+ARCOIRIS: Arco colorido depois da chuva
+SEMENTE: Origem minúscula de toda a planta
+COLMEIA: Casa das abelhas trabalhadoras
+PANTANO: Terra alagada misteriosa
+
+## Nível 5 - Profissões do Mundo
+MEDICO: Cuida da saúde das pessoas
+ENFERMEIRO: Ajuda o médico e cuida de doentes
+PROFESSOR: Ensina com paciência na escola
+ENGENHEIRO: Projeta pontes e edifícios
+ARQUITETO: Desenha casas e cidades
+ADVOGADO: Defende a justiça no tribunal
+JORNALISTA: Conta notícias ao mundo
+COZINHEIRO: Cria pratos deliciosos
+BOMBEIRO: Apaga fogos e salva vidas
+POLICIA: Protege a ordem na cidade
+PILOTO: Conduz aviões no céu
+MARINHEIRO: Navega pelos oceanos
+AGRICULTOR: Cultiva a terra e colhe frutos
+ARTISTA: Cria beleza com as mãos
+CIENTISTA: Investiga segredos da natureza
+
+## Nível 6 - Desporto e Campeões
+FUTEBOL: Jogo da bola no pé mais popular
+BASQUETE: Bola ao cesto com as mãos
+TENIS: Raquete e bola no court
+NATACAO: Deslizar veloz na água
+ATLETISMO: Correr saltar e lançar
+GINASTICA: Corpo flexível e elegante
+CICLISMO: Pedalar veloz na estrada
+SURF: Deslizar nas ondas do mar
+BOXE: Luta com luvas no ringue
+JUDO: Arte marcial do equilíbrio
+MARATONA: Corrida longa de 42 km
+MEDALHA: Prémio de ouro prata e bronze
+TORNEIO: Competição entre equipas
+CAMPEAO: Vencedor que ergue a taça
+ESTADIO: Palco gigante dos jogos e adeptos
+
+## Nível 7 - Sabores do Mundo
+SUSHI: Delícia japonesa com peixe e arroz
+PAELLA: Arroz espanhol com marisco dourado
+LASANHA: Camadas italianas de massa e queijo
+FEIJOADA: Prato brasileiro rico e tradicional
+TACO: Tortilha mexicana bem recheada
+KEBAB: Carne no espeto do Médio Oriente
+CURRY: Tempero indiano aromático e picante
+CUSCUZ: Sêmola dourada do Norte de África
+BACALHAU: Rei da mesa portuguesa
+PASTEL: Massa frita recheada e crocante
+AZEITE: Ouro líquido da oliveira
+MOQUECA: Ensopado baiano de peixe e dendê
+CHURRASCO: Carne na brasa bem suculenta
+VINHO: Bebida da uva fermentada
+COCO: Fruto tropical de água doce
+
+## Nível 8 - Música e Ritmo
+GUITARRA: Cordas que cantam com os dedos
+PIANO: Teclas brancas e pretas harmoniosas
+VIOLINO: Arco que faz chorar as cordas
+BATERIA: Tambores que marcam o ritmo
+TROMPETE: Sopro dourado e brilhante
+SAXOFONE: Sopro suave do jazz
+FADO: Canção portuguesa cheia de saudade
+SAMBA: Ritmo brasileiro que faz sambar
+ROCK: Energia elétrica das guitarras
+JAZZ: Improviso elegante americano
+OPERA: Teatro cantado grandioso
+CORO: Vozes juntas em harmonia
+MELODIA: Sequência bonita de notas
+RITMO: Pulsação que faz o corpo mexer
+CONCERTO: Espetáculo de música ao vivo
+
+## Nível 9 - Aventura e Viagem
+MOCHILA: Casa às costas do viajante
+MAPA: Desenha o mundo em papel
+BUSSOLA: Aponta sempre para o norte
+TENDA: Casa de pano para acampar
+TRILHO: Caminho estreito na natureza
+MIRANTE: Vista incrível lá do alto
+FAROL: Luz que guia os navegantes
+PORTO: Abrigo seguro para barcos
+PASSAPORTE: Chave para cruzar fronteiras
+CARIMBO: Marca da viagem no papel
+SOUVENIR: Lembrança querida da viagem
+AVENTURA: História vivida com emoção
+EXPLORAR: Descobrir o desconhecido
+TRAVESSIA: Caminho longo de descobertas
+
 
 # dificil
 label: Difícil
@@ -176,3 +416,108 @@ EMBAIXADA: Representação no estrangeiro
 DIPLOMACIA: Arte de negociar
 CIDADANIA: Condição de cidadão
 JUSTICA: Equidade e tribunais
+
+## Nível 4 - Exploração Espacial
+GALAXIA: Conjunto gigante de estrelas
+NEBULOSA: Nuvem cósmica colorida
+BURACONEGRO: Nada escapa à sua gravidade
+TELESCOPIO: Olho gigante para o universo
+ASTRONAUTA: Viajante do espaço sideral
+SATELITE: Objeto que orbita um planeta
+GRAVIDADE: Força que prende tudo ao chão
+ORBITA: Caminho circular no espaço
+FOGUETE: Dispara veloz para o espaço
+ESTACAOESPACIAL: Casa orbitando a Terra
+CONSTELACAO: Desenho de estrelas no céu
+SUPERNOVA: Explosão colossal de estrela
+ASTEROIDE: Rocha errante no espaço
+COMETA: Bola de gelo com cauda brilhante
+COSMONAUTA: Astronauta russo no espaço
+INTERESTELAR: Viagem entre as estrelas
+
+## Nível 5 - Ciência e Invenção
+LABORATORIO: Oficina de experiências
+MICROSCOPIO: Lupa gigante para o invisível
+MOLECULA: Bloco da matéria
+ELETRON: Partícula veloz do átomo
+GENETICA: Código da vida no DNA
+BATERIA: Caixa que guarda energia
+ROBOTICA: Máquinas que imitam humanos
+ALGORITMO: Receita lógica do computador
+INTERNET: Rede mundial que liga todos
+VACINA: Escudo contra doenças
+ANTIBIOTICO: Arma contra bactérias
+CLONAGEM: Cópia idêntica de um ser vivo
+EVOLUCAO: Mudança lenta das espécies
+FOSSIL: Memória de pedra de seres antigos
+INOVACAO: Ideia nova que muda o mundo
+
+## Nível 6 - História e Impérios
+PIRAMIDE: Tumba gigante dos faraós
+FARAO: Rei deus do Egito antigo
+COLISEU: Arena dos gladiadores romanos
+IMPERIO: Terras vastas de um só senhor
+CATEDRAL: Igreja gigante medieval
+CASTELO: Fortaleza de pedra de reis
+CAVALEIRO: Guerreiro de armadura e espada
+DESCOBRIMENTO: Viagem que abriu o mundo
+CARAVELA: Navio dos navegadores portugueses
+REVOLUCAO: Mudança brusca na história
+MONARQUIA: Governo de um só rei
+REPUBLICA: Governo do povo
+ARQUEOLOGIA: Escava segredos do passado
+MITOLOGIA: Histórias de deuses antigos
+
+## Nível 7 - Capitais do Mundo
+LISBOA: Capital à beira do Tejo
+MADRID: Capital no coração de Espanha
+PARIS: Capital da luz e da torre de ferro
+ROMA: Capital eterna dos césares
+LONDRES: Capital do Big Ben e do Tâmisa
+BERLIM: Capital na porta de Brandemburgo
+TOQUIO: Capital neon do Japão
+PEQUIM: Capital da Cidade Proibida
+NOVADELHI: Capital vibrante da Índia
+BRASILIA: Capital desenhada no Planalto
+OTTAWA: Capital fria do Canadá
+CAMBERRA: Capital planeada da Austrália
+CAIRO: Capital à sombra das pirâmides
+ATENAS: Capital berço da democracia
+OSLO: Capital dos fiordes gelados
+REIQUIAVIQUE: Capital mais a norte do mundo
+
+## Nível 8 - Cinema e Literatura
+CINEMA: Fábrica de sonhos em 24 fotogramas
+DIRETOR: Comanda a câmara e os atores
+ROTEIRO: Mapa escrito de um filme
+ANIMACAO: Desenho que ganha vida
+DOCUMENTARIO: Filme que mostra a realidade
+FESTIVAL: Celebração de filmes e prémios
+OSCAR: Estátua dourada do cinema
+BESTSELLER: Livro muito vendido
+ROMANCE: História longa de amor ou aventura
+POESIA: Música feita só de palavras
+CRONICA: Retrato do dia a dia com arte
+BIBLIOTECA: Tesouro infinito de livros
+EDITORA: Casa que dá vida aos livros
+PERSONAGEM: Alma fictícia de uma história
+NARRADOR: Voz que conta a história
+
+## Nível 9 - Mitologia e Mistérios
+ZEUS: Rei dos deuses do Olimpo
+POSEIDON: Deus dos mares e terremotos
+ATENA: Deusa da sabedoria e guerra
+APOLO: Deus do sol e da música
+ARTEMIS: Deusa da lua e da caça
+HERCULES: Herói de força colossal
+MINOTAURO: Touro homem do labirinto
+FENIX: Ave que renasce das cinzas
+ATLANTIDA: Continente perdido no mar
+ORACULO: Voz que prevê o futuro
+ENIGMA: Mistério difícil de decifrar
+LENDA: História sussurrada pelo tempo
+PROFECIA: Antevisão do que virá
+DESTINO: Caminho escrito nas estrelas
+OLIMPO: Morada dos deuses gregos
+
+

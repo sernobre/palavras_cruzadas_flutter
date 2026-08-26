@@ -60,6 +60,145 @@ COMET: Tailed space object
 PLANET: Orbits the sun
 SPACE: The universe out there
 
+## Level 4 - Animal Kingdom
+LION: King of the jungle with golden mane
+TIGER: Striped orange wild cat
+ZEBRA: Horse with black and white stripes
+PANDA: Bear that loves bamboo
+RABBIT: Hops with long ears
+MONKEY: Climbs trees and loves bananas
+FROG: Amphibian that croaks in ponds
+WHALE: Gentle giant of the oceans
+DOLPHIN: Smart marine mammal
+PARROT: Colourful bird that mimics voices
+PENGUIN: Ice bird that cannot fly
+BEE: Insect that makes honey
+BUTTERFLY: Insect with colourful wings
+TURTLE: Slow reptile with a shell
+KANGAROO: Jumps with a pouch on its belly
+GIRAFFE: Tallest neck on the savanna
+
+## Level 5 - Kitchen Flavours
+PEPPER: Spice that burns the tongue
+RICE: White base of many meals
+BEAN: Grain companion of rice
+POTATO: Tuber fried or boiled
+TOMATO: Red fruit for salads
+CARROT: Orange veg good for eyes
+LETTUCE: Green leaf for salads
+BANANA: Yellow sweet fruit
+STRAWBERRY: Small red sweet fruit
+GRAPE: Cluster fruit that makes wine
+LEMON: Sour and refreshing citrus
+ORANGE: Sweet citrus rich in vitamin C
+CAKE: Oven-baked sweet for parties
+HONEY: Golden sweet made by bees
+BUTTER: Yellowish cream for bread
+OLIVEOIL: Liquid gold from olives
+
+## Level 6 - Colours and Shapes
+BLUE: Colour of the clear sky
+GREEN: Colour of grass and leaves
+YELLOW: Colour of bright sunshine
+RED: Colour of ripe strawberry
+ORANGE: Colour between red and yellow
+PURPLE: Colour of grape and lavender
+PINK: Soft colour of delicate flowers
+GRAY: Colour of heavy clouds
+WHITE: Colour of pure snow
+BLACK: Colour of moonless night
+CIRCLE: Round shape with no corners
+SQUARE: Shape with four equal sides
+TRIANGLE: Shape with three points
+STAR: Five-pointed shape that shines
+RECTANGLE: Elongated four-sided shape
+HEART: Love shape everyone draws
+
+## Level 7 - Human Body
+BRAIN: Organ that thinks and controls all
+HEART: Beats nonstop in the chest
+LUNG: Breathes air into the blood
+STOMACH: Digests what we eat
+BONE: Hard structure supporting the body
+BLOOD: Red liquid running in veins
+SKIN: Covers and protects the whole body
+MUSCLE: Makes the body move with strength
+EYE: Sees colours and shapes
+NOSE: Smells perfumes and aromas
+MOUTH: Speaks and tastes food
+KNEE: Bends the leg when walking
+SHOULDER: Connects arm to trunk
+HAIR: Strands growing on the head
+NAIL: Protects the tip of fingers
+SMILE: Curve that lights up the face
+
+## Level 8 - Sweet Home
+KITCHEN: Where meals are prepared
+LIVINGROOM: Where family gathers
+BEDROOM: Where you sleep and dream
+WINDOW: Lets light and air in
+DOOR: Opens passage between rooms
+MIRROR: Reflects your image
+PILLOW: Soft support for the head
+BLANKET: Warms cold nights
+CURTAIN: Dresses the window with fabric
+DRAWER: Stores objects in the dresser
+STAIRS: Connects one floor to another
+ROOF: Covers the house from rain
+KEY: Opens the door lock
+FIREPLACE: Warms the room in winter
+CARPET: Covers the floor with comfort
+
+## Level 9 - Park and Play
+SWING: Goes back and forth in the air
+SLIDE: Laughs sliding down to ground
+DOLL: Toy shaped like a little girl
+TOYCAR: Toy with four wheels
+BALL: Bounces and rolls in every game
+SPINTOP: Spins nonstop on the floor
+KITE: Flies high with the wind
+CLOWN: Makes you laugh with red nose
+PARTY: Joyful gathering with music
+MUSIC: Sound that makes you dance
+DANCE: Body moving to rhythm
+GAME: Fun challenge with rules
+FRIEND: Playtime companion
+LAUGH: Sound of someone happy
+CAROUSEL: Horses spinning to music
+
+## Level 10 - Future Transport
+TUNNEL: Underground passage for cars
+BRIDGE: Connects banks over the river
+ROAD: Lane for fast cars
+BICYCLE: Two wheels powered by pedals
+MOTORBIKE: Two wheels with fast engine
+TRAIN: Long serpent on rails
+METRO: Train running under ground
+TRAM: Carriage on rails in the city
+BOAT: Floating house on water
+SHIP: Giant of seas and oceans
+PLANE: Metal bird in the sky
+HELICOPTER: Blade that lifts vertically
+ROCKET: Fires fast into space
+DRONE: Flying robot with propellers
+
+## Level 11 - Secret Garden
+ROSE: Perfumed queen of flowers
+TULIP: Colourful spring chalice
+SUNFLOWER: Flower that follows the sun
+DAISY: White flower with golden centre
+LAVENDER: Purple perfume of fields
+CACTUS: Spiky plant of the desert
+FERN: Green lacy leaf
+VEGETABLEPATCH: Corner of fresh veg
+SEED: Tiny beginning of a plant
+WATERING: Water feeding the garden
+BEE: Golden striped pollinator
+LADYBUG: Red beetle with black dots
+BUTTERFLY: Colourful dancer of the garden
+POT: Clay house for plants
+
+
 # medio
 label: Medium
 description: Everyday words and city life
@@ -124,6 +263,108 @@ WHEEL: Rounds and rolls
 SPEED: Rate of moving
 FUEL: Powers the engine
 
+## Level 4 - Wild Nature
+VOLCANO: Mountain that spits hot lava
+WATERFALL: Impressive falling water
+CAVE: Dark grotto in the mountain
+OCEAN: Huge sea covering the Earth
+JUNGLE: Dense humid forest
+CANYON: Deep valley between rocks
+GLACIER: Giant river of eternal ice
+AURORA: Colourful polar lights
+ECLIPSE: Sun or moon hidden by shadow
+TORNADO: Destructive spiral wind
+HURRICANE: Giant storm of the seas
+RAINBOW: Coloured arc after rain
+SEED: Tiny origin of every plant
+BEEHIVE: Home of hardworking bees
+SWAMP: Mysterious flooded land
+
+## Level 5 - World Professions
+DOCTOR: Cares for peoples health
+NURSE: Helps the doctor care for patients
+TEACHER: Teaches patiently at school
+ENGINEER: Designs bridges and buildings
+ARCHITECT: Draws houses and cities
+LAWYER: Defends justice in court
+JOURNALIST: Tells news to the world
+CHEF: Creates delicious dishes
+FIREFIGHTER: Puts out fires and saves lives
+POLICE: Keeps order in the city
+PILOT: Flies planes in the sky
+SAILOR: Sails across oceans
+FARMER: Tills the land and harvests
+ARTIST: Creates beauty with hands
+SCIENTIST: Investigates natures secrets
+
+## Level 6 - Sports and Champions
+FOOTBALL: Most popular foot-ball game
+BASKETBALL: Ball to the hoop with hands
+TENNIS: Racket and ball on court
+SWIMMING: Glide fast in water
+ATHLETICS: Run jump and throw
+GYMNASTICS: Flexible elegant body
+CYCLING: Pedal fast on the road
+SURFING: Glide on sea waves
+BOXING: Fight with gloves in the ring
+JUDO: Martial art of balance
+MARATHON: Long 42 km race
+MEDAL: Prize of gold silver bronze
+TOURNAMENT: Competition between teams
+CHAMPION: Winner lifting the cup
+STADIUM: Giant stage for games and fans
+
+## Level 7 - World Flavours
+SUSHI: Japanese delight with fish and rice
+PAELLA: Spanish rice with golden seafood
+LASAGNA: Italian layers of pasta and cheese
+FEIJOADA: Rich traditional Brazilian stew
+TACO: Well-filled Mexican tortilla
+KEBAB: Skewered meat from Middle East
+CURRY: Aromatic spicy Indian seasoning
+COUSCOUS: Golden semolina from North Africa
+CODFISH: King of the Portuguese table
+PASTRY: Fried stuffed crunchy dough
+OLIVEOIL: Liquid gold from olives
+MOQUECA: Bahian fish stew with palm oil
+BARBECUE: Succulent meat on the grill
+WINE: Drink from fermented grapes
+COCONUT: Tropical fruit with sweet water
+
+## Level 8 - Music and Rhythm
+GUITAR: Strings singing with fingers
+PIANO: Harmonious white and black keys
+VIOLIN: Bow making strings weep
+DRUMS: Beat marking rhythm
+TRUMPET: Golden bright brass sound
+SAXOPHONE: Smooth breath of jazz
+FADO: Portuguese song full of longing
+SAMBA: Brazilian rhythm to dance to
+ROCK: Electric energy of guitars
+JAZZ: Elegant American improvisation
+OPERA: Grand sung theatre
+CHOIR: Voices together in harmony
+MELODY: Beautiful sequence of notes
+RHYTHM: Pulse making the body move
+CONCERT: Live music show
+
+## Level 9 - Adventure and Travel
+BACKPACK: House on travellers back
+MAP: Draws the world on paper
+COMPASS: Always points to the north
+TENT: Cloth house for camping
+TRAIL: Narrow path in nature
+VIEWPOINT: Amazing view from above
+LIGHTHOUSE: Light guiding sailors
+HARBOUR: Safe shelter for boats
+PASSPORT: Key to cross borders
+STAMP: Travel mark on paper
+SOUVENIR: Dear memory from the trip
+ADVENTURE: Story lived with emotion
+EXPLORE: Discover the unknown
+CROSSING: Long path of discoveries
+
+
 # dificil
 label: Hard
 description: Longer and more demanding vocabulary
@@ -186,3 +427,108 @@ GOVERNMENT: Political power of a country
 SENATE: Upper legislative chamber
 CONGRESS: Legislative assembly
 VOTE: Express a choice
+
+## Level 4 - Space Exploration
+GALAXY: Giant cluster of stars
+NEBULA: Colourful cosmic cloud
+BLACKHOLE: Nothing escapes its gravity
+TELESCOPE: Giant eye for the universe
+ASTRONAUT: Traveller of outer space
+SATELLITE: Object orbiting a planet
+GRAVITY: Force holding everything down
+ORBIT: Circular path in space
+ROCKET: Fires fast into space
+SPACESTATION: House orbiting Earth
+CONSTELLATION: Star picture in the sky
+SUPERNOVA: Colossal star explosion
+ASTEROID: Wandering rock in space
+COMET: Ice ball with bright tail
+COSMONAUT: Russian astronaut
+INTERSTELLAR: Journey between stars
+
+## Level 5 - Science and Invention
+LABORATORY: Workshop for experiments
+MICROSCOPE: Giant lens for the invisible
+MOLECULE: Building block of matter
+ELECTRON: Fast particle of the atom
+GENETICS: Code of life in DNA
+BATTERY: Box storing energy
+ROBOTICS: Machines mimicking humans
+ALGORITHM: Logical recipe for computers
+INTERNET: Worldwide network linking all
+VACCINE: Shield against diseases
+ANTIBIOTIC: Weapon against bacteria
+CLONING: Identical copy of a living being
+EVOLUTION: Slow change of species
+FOSSIL: Stone memory of ancient beings
+INNOVATION: New idea changing the world
+
+## Level 6 - History and Empires
+PYRAMID: Giant tomb of pharaohs
+PHARAOH: God-king of ancient Egypt
+COLOSSEUM: Arena of Roman gladiators
+EMPIRE: Vast lands under one lord
+CATHEDRAL: Giant medieval church
+CASTLE: Stone fortress of kings
+KNIGHT: Warrior in armour and sword
+DISCOVERY: Voyage that opened the world
+CARAVEL: Ship of Portuguese navigators
+REVOLUTION: Abrupt change in history
+MONARCHY: Government of a single king
+REPUBLIC: Government of the people
+ARCHAEOLOGY: Digs secrets of the past
+MYTHOLOGY: Stories of ancient gods
+
+## Level 7 - World Capitals
+LISBON: Capital by the Tagus river
+MADRID: Capital in the heart of Spain
+PARIS: Capital of light and iron tower
+ROME: Eternal capital of caesars
+LONDON: Capital of Big Ben and Thames
+BERLIN: Capital at Brandenburg Gate
+TOKYO: Neon capital of Japan
+BEIJING: Capital of the Forbidden City
+NEWDELHI: Vibrant capital of India
+BRASILIA: Planned capital on the plateau
+OTTAWA: Cold capital of Canada
+CANBERRA: Planned capital of Australia
+CAIRO: Capital in the shadow of pyramids
+ATHENS: Cradle of democracy capital
+OSLO: Capital of icy fjords
+REYKJAVIK: Northernmost capital in the world
+
+## Level 8 - Cinema and Literature
+CINEMA: Dream factory at 24 frames per second
+DIRECTOR: Commands camera and actors
+SCRIPT: Written map of a film
+ANIMATION: Drawing that comes to life
+DOCUMENTARY: Film showing reality
+FESTIVAL: Celebration of films and prizes
+OSCAR: Golden statue of cinema
+BESTSELLER: Highly sold book
+NOVEL: Long story of love or adventure
+POETRY: Music made only of words
+CHRONICLE: Portrait of daily life with art
+LIBRARY: Infinite treasure of books
+PUBLISHER: House giving life to books
+CHARACTER: Fictional soul of a story
+NARRATOR: Voice telling the story
+
+## Level 9 - Mythology and Mysteries
+ZEUS: King of gods on Olympus
+POSEIDON: God of seas and quakes
+ATHENA: Goddess of wisdom and war
+APOLLO: God of sun and music
+ARTEMIS: Goddess of moon and hunt
+HERCULES: Hero of colossal strength
+MINOTAUR: Bull-man of the labyrinth
+PHOENIX: Bird reborn from ashes
+ATLANTIS: Lost continent in the sea
+ORACLE: Voice foretelling the future
+ENIGMA: Difficult mystery to solve
+LEGEND: Story whispered by time
+PROPHECY: Foresight of what will come
+DESTINY: Path written in the stars
+OLYMPUS: Home of Greek gods
+
+
