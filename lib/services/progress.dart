@@ -3,9 +3,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 String levelKey(String langId, String diffId, String levelName) =>
     '${langId}_${diffId}_$levelName';
 
+String dailyKey(String langId, DateTime day) =>
+    'daily_${langId}_${_dayString(day)}';
+
+String _dayString(DateTime d) => '${d.year}-${d.month}-${d.day}';
+
 class ProgressStore {
   static const String _starsPrefix = 'stars_';
   static const String _proKey = 'pro_unlocked';
+  static const String _streakKey = 'streak';
+  static const String _lastDailyKey = 'last_daily';
 
   final SharedPreferences _prefs;
 
@@ -38,4 +45,38 @@ class ProgressStore {
   bool get isPro => _prefs.getBool(_proKey) ?? false;
 
   Future<void> setPro(bool value) => _prefs.setBool(_proKey, value);
+
+  int get streak => _prefs.getInt(_streakKey) ?? 0;
+
+  DateTime? get lastDailyDate {
+    final s = _prefs.getString(_lastDailyKey);
+    return s == null ? null : DateTime.tryParse(s);
+  }
+
+  bool dailyCompletedToday(String langId, DateTime day) =>
+      _prefs.getInt(dailyKey(langId, day)) == 1;
+
+  /// Records a completed daily puzzle for [day] and updates the streak.
+  /// Consecutive days increment the streak; gaps or first play reset to 1.
+  Future<void> recordDaily(String langId, DateTime day) async {
+    final today = DateTime(day.year, day.month, day.day);
+    final last = lastDailyDate;
+    var s = streak;
+
+    if (last != null) {
+      final lastDay = DateTime(last.year, last.month, last.day);
+      final diff = today.difference(lastDay).inDays;
+      if (diff == 1) {
+        s += 1;
+      } else if (diff != 0) {
+        s = 1;
+      }
+    } else {
+      s = 1;
+    }
+
+    await _prefs.setInt(_streakKey, s);
+    await _prefs.setString(_lastDailyKey, today.toIso8601String());
+    await _prefs.setInt(dailyKey(langId, today), 1);
+  }
 }

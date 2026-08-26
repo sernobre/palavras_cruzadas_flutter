@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/models/generator.dart';
+import 'package:palavrascruzadas/services/progress.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -63,5 +65,36 @@ void main() {
         equals('CORACAO'));
     expect(normalizeWord('AÑO', {'A', 'N', 'O', 'Ñ'}), equals('AÑO'));
     expect(normalizeWord('Órgão', {'A', 'G', 'O', 'R'}), equals('ORGAO'));
+  });
+
+  test('daily level is deterministic and non-empty for a date', () async {
+    final languages = await loadLanguages();
+    final lang = languages.first;
+    final d1 = buildDailyLevel(lang, DateTime(2026, 8, 26));
+    final d2 = buildDailyLevel(lang, DateTime(2026, 8, 26));
+    final d3 = buildDailyLevel(lang, DateTime(2026, 8, 27));
+    expect(d1.entries.length, greaterThan(0));
+    expect(d1.entries.map((e) => e.word), equals(d2.entries.map((e) => e.word)));
+    expect(d1.entries.map((e) => e.word),
+        isNot(equals(d3.entries.map((e) => e.word))));
+  });
+
+  test('streak increments on consecutive days and resets on gap', () async {
+    SharedPreferences.setMockInitialValues({});
+    final store = await ProgressStore.load();
+    final d1 = DateTime(2026, 8, 26);
+    final d2 = DateTime(2026, 8, 27);
+    final d4 = DateTime(2026, 8, 29);
+
+    await store.recordDaily('pt', d1);
+    expect(store.streak, 1);
+    await store.recordDaily('pt', d2);
+    expect(store.streak, 2);
+    expect(store.dailyCompletedToday('pt', d2), isTrue);
+    expect(store.dailyCompletedToday('pt', d1), isTrue);
+
+    // gap of one day resets the streak to 1
+    await store.recordDaily('pt', d4);
+    expect(store.streak, 1);
   });
 }

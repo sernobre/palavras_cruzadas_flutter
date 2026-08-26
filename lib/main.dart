@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/screens/difficulty_screen.dart';
+import 'package:palavrascruzadas/screens/game_screen.dart';
+import 'package:palavrascruzadas/services/progress.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
 void main() async {
@@ -37,6 +39,35 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selected = 0;
+  ProgressStore? _store;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadStore();
+  }
+
+  Future<void> _loadStore() async {
+    final store = await ProgressStore.load();
+    if (mounted) setState(() => _store = store);
+  }
+
+  List<String> get _levelKeys {
+    final keys = <String>[];
+    for (final l in widget.languages) {
+      for (final d in l.difficulties) {
+        for (final lv in d.levels) {
+          if (lv.entries.isNotEmpty) keys.add(levelKey(l.id, d.id, lv.name));
+        }
+      }
+    }
+    return keys;
+  }
+
+  int get _totalLevels => _levelKeys.length;
+
+  int get _completedLevels =>
+      _store?.completedCount(_levelKeys) ?? 0;
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +114,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: const TextStyle(fontSize: 15, color: AppTheme.muted),
               ),
               const SizedBox(height: 16),
+              _ProgressHeader(
+                store: _store,
+                completed: _completedLevels,
+                total: _totalLevels,
+              ),
+              const SizedBox(height: 12),
+              _DailyCard(
+                store: _store,
+                language: language,
+                onPlay: () => _openDaily(language),
+              ),
+              const SizedBox(height: 16),
               _LanguageSelector(
                 languages: widget.languages,
                 selected: _selected,
@@ -98,11 +141,188 @@ class _HomeScreenState extends State<HomeScreen> {
                     return _DifficultyHomeCard(
                       language: language,
                       difficulty: d,
+                      onReturn: () => _loadStore(),
                     );
                   },
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openDaily(Language language) async {
+    final daily = buildDailyDifficulty(language, DateTime.now());
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => GameScreen(
+          language: language,
+          difficulty: daily,
+          level: daily.levels.first,
+          levelIndex: 0,
+        ),
+      ),
+    );
+    _loadStore();
+  }
+}
+
+class _ProgressHeader extends StatelessWidget {
+  final ProgressStore? store;
+  final int completed;
+  final int total;
+
+  const _ProgressHeader(
+      {required this.store, required this.completed, required this.total});
+
+  @override
+  Widget build(BuildContext context) {
+    final stars = store?.totalStars() ?? 0;
+    final streak = store?.streak ?? 0;
+    return Row(
+      children: [
+        Expanded(
+          child: _Stat(
+            icon: Icons.star_rounded,
+            color: AppTheme.accent,
+            value: '$stars',
+            label: 'estrelas',
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: _Stat(
+            icon: Icons.local_fire_department_rounded,
+            color: Colors.deepOrange,
+            value: '$streak',
+            label: 'dias seguidos',
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: _Stat(
+            icon: Icons.check_circle_rounded,
+            color: AppTheme.primary,
+            value: '$completed/$total',
+            label: 'níveis',
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _Stat extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String value;
+  final String label;
+
+  const _Stat({
+    required this.icon,
+    required this.color,
+    required this.value,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: color, size: 22),
+          const SizedBox(height: 4),
+          Text(value,
+              style:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+          Text(label,
+              style: const TextStyle(color: AppTheme.muted, fontSize: 11)),
+        ],
+      ),
+    );
+  }
+}
+
+class _DailyCard extends StatelessWidget {
+  final ProgressStore? store;
+  final Language language;
+  final VoidCallback onPlay;
+
+  const _DailyCard(
+      {required this.store,
+      required this.language,
+      required this.onPlay});
+
+  @override
+  Widget build(BuildContext context) {
+    final done = store?.dailyCompletedToday(language.id, DateTime.now()) ?? false;
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            AppTheme.primary,
+            AppTheme.primary.withValues(alpha: 0.75),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onPlay,
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: Row(
+              children: [
+                const Icon(Icons.calendar_today_rounded,
+                    color: Colors.white, size: 30),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Puzzle Diário',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w800)),
+                      const SizedBox(height: 2),
+                      Text(
+                        done
+                            ? 'Concluído hoje — volta amanhã!'
+                            : 'Um desafio novo todos os dias',
+                        style: const TextStyle(
+                            color: Colors.white70, fontSize: 13),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    done ? 'Feito' : 'Jogar',
+                    style: TextStyle(
+                        color: AppTheme.primary,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -164,10 +384,12 @@ class _LanguageSelector extends StatelessWidget {
 class _DifficultyHomeCard extends StatelessWidget {
   final Language language;
   final Difficulty difficulty;
+  final VoidCallback? onReturn;
 
   const _DifficultyHomeCard({
     required this.language,
     required this.difficulty,
+    this.onReturn,
   });
 
   @override
@@ -186,14 +408,16 @@ class _DifficultyHomeCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: () {
-          Navigator.of(context).push(
+          Navigator.of(context)
+              .push(
             MaterialPageRoute(
               builder: (_) => DifficultyScreen(
                 language: language,
                 difficulty: difficulty,
               ),
             ),
-          );
+          )
+              .then((_) => onReturn?.call());
         },
         child: Padding(
           padding: const EdgeInsets.all(20),

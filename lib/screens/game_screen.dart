@@ -41,6 +41,8 @@ class _GameScreenState extends State<GameScreen> {
 
   UiStrings get ui => widget.language.ui;
 
+  bool get _isDaily => widget.difficulty.id == 'diario';
+
   static const int freeHintsPerLevel = 5;
 
   @override
@@ -247,6 +249,7 @@ class _GameScreenState extends State<GameScreen> {
               ? 2
               : 1;
       _store?.recordStars(_levelKey, stars);
+      if (_isDaily) _store?.recordDaily(widget.language.id, DateTime.now());
     }
 
     final nextIndex = _nextLevelIndex;

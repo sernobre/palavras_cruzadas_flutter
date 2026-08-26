@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../models/crossword.dart';
 import 'level_loader.dart';
 
@@ -155,3 +157,36 @@ Future<List<Language>> loadLanguages() async {
   }
   return result;
 }
+
+String _dailyName(DateTime date) =>
+    '${date.day.toString().padLeft(2, '0')}/'
+    '${date.month.toString().padLeft(2, '0')}/'
+    '${date.year}';
+
+/// Builds a deterministic daily puzzle from all words of [lang] for [date].
+Level buildDailyLevel(Language lang, DateTime date, {int count = 9}) {
+  final all = lang.difficulties
+      .expand((d) => d.levels)
+      .expand((l) => l.entries)
+      .toList();
+
+  final seen = <String>{};
+  final unique = <Entry>[];
+  for (final e in all) {
+    final w = e.word.toUpperCase();
+    if (seen.add(w)) unique.add(e);
+  }
+
+  final seed = date.year * 10000 + date.month * 100 + date.day;
+  unique.shuffle(Random(seed));
+
+  return Level(name: _dailyName(date), entries: unique.take(count).toList());
+}
+
+/// A synthetic difficulty holding only the daily puzzle for [date].
+Difficulty buildDailyDifficulty(Language lang, DateTime date) => Difficulty(
+      id: 'diario',
+      label: 'Puzzle Diário',
+      description: 'Um desafio novo todos os dias',
+      levels: [buildDailyLevel(lang, date)],
+    );
