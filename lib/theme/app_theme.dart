@@ -46,8 +46,8 @@ class AppTheme {
           backgroundColor: primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          textStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     );
@@ -86,8 +86,8 @@ class AppTheme {
           backgroundColor: primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          textStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     );

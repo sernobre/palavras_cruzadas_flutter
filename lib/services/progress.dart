@@ -40,12 +40,12 @@ class ProgressStore {
   Future<void> _migrateLegacyKeys() async {
     const legacyMap = {'pt': 'pt-PT', 'es': 'es-ES', 'en': 'en-US'};
     for (final entry in legacyMap.entries) {
-      final legacyPrefixStars = '${_starsPrefix}${entry.key}_';
-      final newPrefixStars = '${_starsPrefix}${entry.value}_';
-      final legacyPrefixSave = '${_savePrefix}${entry.key}_';
-      final newPrefixSave = '${_savePrefix}${entry.value}_';
-      final legacyPrefixTime = '${_bestTimePrefix}${entry.key}_';
-      final newPrefixTime = '${_bestTimePrefix}${entry.value}_';
+      final legacyPrefixStars = '$_starsPrefix${entry.key}_';
+      final newPrefixStars = '$_starsPrefix${entry.value}_';
+      final legacyPrefixSave = '$_savePrefix${entry.key}_';
+      final newPrefixSave = '$_savePrefix${entry.value}_';
+      final legacyPrefixTime = '$_bestTimePrefix${entry.key}_';
+      final newPrefixTime = '$_bestTimePrefix${entry.value}_';
       for (final k in _prefs.getKeys().toList()) {
         if (k.startsWith(legacyPrefixStars) && !_prefs.containsKey(k.replaceFirst(legacyPrefixStars, newPrefixStars))) {
           final v = _prefs.getInt(k);

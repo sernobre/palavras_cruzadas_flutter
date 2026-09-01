@@ -46,7 +46,7 @@ class CrosswordBoard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.15),
+              color: Colors.black.withValues(alpha: 0.15),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -121,7 +121,7 @@ class _Cell extends StatelessWidget {
           color: Theme.of(context).brightness == Brightness.dark
               ? const Color(0xFF0F111A)
               : const Color(0xFF1B1F2A),
-          border: Border.all(color: Colors.black.withOpacity(0.2), width: 1),
+          border: Border.all(color: Colors.black.withValues(alpha: 0.2), width: 1),
         ),
         child: CustomPaint(
           painter: _BlockPainter(),
@@ -203,7 +203,7 @@ class _BlockPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white.withOpacity(0.06)
+      ..color = Colors.white.withValues(alpha: 0.06)
       ..strokeWidth = 1;
     for (double i = -size.height; i < size.width; i += 6) {
       canvas.drawLine(Offset(i, 0), Offset(i + size.height, size.height), paint);

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -113,8 +114,11 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
 
   void _buildPuzzle() {
     final entries = [...widget.level.entries];
-    entries.shuffle();
-    _puzzle = generateCrossword(entries, alphabet: widget.language.alphabet.toSet());
+    // Keep the layout stable so a saved game can be restored after restarting
+    // the app. The seed also makes the daily puzzle reproducible for the day.
+    final random = Random(_puzzleSeed);
+    entries.shuffle(random);
+    _puzzle = generateCrossword(entries, alphabet: widget.language.alphabet.toSet(), random: random);
     _userInput.clear();
     _revealed.clear();
     _errorCells.clear();
@@ -145,6 +149,15 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
     _activeAcross = true;
     _updateKeyboardLetters();
     _stopTimer();
+  }
+
+  int get _puzzleSeed {
+    var hash = 17;
+    final key = _levelKey;
+    for (final codeUnit in key.codeUnits) {
+      hash = (hash * 31 + codeUnit) & 0x7fffffff;
+    }
+    return hash;
   }
 
   void _updateKeyboardLetters() {
@@ -379,17 +392,6 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
     if (ok == true && mounted) setState(() => _store = s);
   }
 
-  Future<void> _unlockPro() async {
-    final store = _store ?? await ProgressStore.load();
-    await store.setPro(true);
-    setState(() => _store = store);
-    if (mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Pro desbloqueado (demonstração local).')),
-      );
-    }
-  }
-
   void _clearWord() {
     final clue = _activeClue;
     if (clue == null) return;
@@ -397,18 +399,6 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
     setState(() {
       for (final cell in clue.cells) {
         if (!_revealed.contains(cell.key)) _userInput.remove(cell.key);
-      }
-    });
-    _recomputeErrors();
-    _persistState();
-  }
-
-  void _clearAll() {
-    _pushUndo();
-    setState(() {
-      final toRemove = _userInput.keys.where((k) => !_revealed.contains(k)).toList();
-      for (final k in toRemove) {
-        _userInput.remove(k);
       }
     });
     _recomputeErrors();
@@ -533,7 +523,7 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppTheme.primary.withOpacity(0.1),
+                color: AppTheme.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -601,7 +591,7 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     decoration: BoxDecoration(
-                      color: Colors.orange.withOpacity(0.15),
+                      color: Colors.orange.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text('$_hintsUsed dicas',
@@ -694,9 +684,9 @@ class _ClueBar extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16, 8, 16, 4),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: AppTheme.primary.withOpacity(0.08),
+        color: AppTheme.primary.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.primary.withOpacity(0.2)),
+        border: Border.all(color: AppTheme.primary.withValues(alpha: 0.2)),
       ),
       child: InkWell(
         onTap: onToggle,

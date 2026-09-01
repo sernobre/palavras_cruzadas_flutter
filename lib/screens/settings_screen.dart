@@ -49,7 +49,7 @@ class SettingsScreen extends StatelessWidget {
                   subtitle: Text(pair.$2.ui.subtitle),
                   trailing: selected == pair.$1 ? const Icon(Icons.check_rounded, color: AppTheme.primary) : null,
                   selected: selected == pair.$1,
-                  selectedTileColor: AppTheme.primary.withOpacity(0.08),
+                  selectedTileColor: AppTheme.primary.withValues(alpha: 0.08),
                   onTap: () {
                     onSelect(pair.$1);
                     Navigator.pop(context);
