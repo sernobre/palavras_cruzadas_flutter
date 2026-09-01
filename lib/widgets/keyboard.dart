@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
 class Keyboard extends StatelessWidget {
@@ -18,27 +19,36 @@ class Keyboard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? const Color(0xFF1E2130)
+            : Colors.white,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
+            color: Colors.black.withOpacity(0.08),
             blurRadius: 10,
             offset: const Offset(0, -4),
           ),
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           ..._chunk(alphabet, 10),
           const SizedBox(height: 8),
           Row(
             children: [
               Expanded(
-                child: _KeyButton(
-                  onTap: onBackspace,
-                  child: const Icon(Icons.backspace_rounded,
-                      color: AppTheme.primary),
+                child: Semantics(
+                  label: 'Apagar',
+                  button: true,
+                  child: _KeyButton(
+                    onTap: () {
+                      HapticFeedback.lightImpact();
+                      onBackspace();
+                    },
+                    child: const Icon(Icons.backspace_rounded, color: AppTheme.primary),
+                  ),
                 ),
               ),
             ],
@@ -50,7 +60,6 @@ class Keyboard extends StatelessWidget {
 
   List<Widget> _chunk(List<String> keys, int maxPerRow) {
     if (keys.isEmpty) return [];
-    // Distribui equilibrado: 12 letras => 6+6 em vez de 10+2, 26 => 9+9+8
     final rowCount = (keys.length / maxPerRow).ceil().clamp(1, 10);
     final base = keys.length ~/ rowCount;
     final remainder = keys.length % rowCount;
@@ -66,21 +75,22 @@ class Keyboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: rowKeys
               .map((k) => Flexible(
-                    // Flexible + ConstrainedBox mantém botões equilibrados e não gigantes
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        minWidth: 32,
-                        maxWidth: 48,
-                      ),
+                      constraints: const BoxConstraints(minWidth: 32, maxWidth: 48),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 3),
-                        child: _KeyButton(
-                          onTap: () => onLetter(k),
-                          child: Text(k,
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppTheme.primaryDark)),
+                        child: Semantics(
+                          label: 'Letra $k',
+                          button: true,
+                          child: _KeyButton(
+                            onTap: () {
+                              HapticFeedback.selectionClick();
+                              onLetter(k);
+                            },
+                            child: Text(k,
+                                style: const TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w600, color: AppTheme.primaryDark)),
+                          ),
                         ),
                       ),
                     ),
@@ -101,8 +111,9 @@ class _KeyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Material(
-      color: AppTheme.background,
+      color: isDark ? const Color(0xFF2A2E45) : AppTheme.background,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
@@ -111,7 +122,7 @@ class _KeyButton extends StatelessWidget {
           height: 46,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            border: Border.all(color: AppTheme.cellBorder),
+            border: Border.all(color: isDark ? Colors.white12 : AppTheme.cellBorder),
             borderRadius: BorderRadius.circular(10),
           ),
           child: child,

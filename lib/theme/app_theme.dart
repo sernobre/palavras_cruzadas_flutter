@@ -12,6 +12,8 @@ class AppTheme {
   static const Color activeClue = Color(0xFFE3E9FF);
   static const Color activeCell = Color(0xFFB3C0FF);
   static const Color correct = Color(0xFFC8F7DC);
+  static const Color error = Color(0xFFFFCDD2);
+  static const Color errorText = Color(0xFFC62828);
 
   static ThemeData light() {
     return ThemeData(
@@ -21,6 +23,7 @@ class AppTheme {
         seedColor: primary,
         primary: primary,
         secondary: accent,
+        surface: surface,
       ),
       textTheme: const TextTheme(
         titleLarge: TextStyle(fontWeight: FontWeight.w700, letterSpacing: -0.5),
@@ -43,8 +46,48 @@ class AppTheme {
           backgroundColor: primary,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-          textStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          textStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+        ),
+      ),
+    );
+  }
+
+  static ThemeData dark() {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: const Color(0xFF0F111A),
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primary,
+        brightness: Brightness.dark,
+        primary: primary,
+        secondary: accent,
+        surface: const Color(0xFF1E2130),
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(fontWeight: FontWeight.w700, letterSpacing: -0.5, color: Colors.white),
+        titleMedium: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+        bodyMedium: TextStyle(fontSize: 15, color: Colors.white70),
+      ),
+      cardTheme: CardThemeData(
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        color: const Color(0xFF1E2130),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFF0F111A),
+        foregroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: primary,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+          textStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     );

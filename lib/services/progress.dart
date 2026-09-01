@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 String levelKey(String langId, String diffId, String levelName) =>
@@ -13,6 +15,8 @@ class ProgressStore {
   static const String _proKey = 'pro_unlocked';
   static const String _streakKey = 'streak';
   static const String _lastDailyKey = 'last_daily';
+  static const String _savePrefix = 'save_';
+  static const String _bestTimePrefix = 'best_time_';
 
   final SharedPreferences _prefs;
 
@@ -22,6 +26,8 @@ class ProgressStore {
     final prefs = await SharedPreferences.getInstance();
     return ProgressStore(prefs);
   }
+
+  SharedPreferences get prefs => _prefs;
 
   int starsFor(String key) => _prefs.getInt('$_starsPrefix$key') ?? 0;
 
@@ -56,13 +62,10 @@ class ProgressStore {
   bool dailyCompletedToday(String langId, DateTime day) =>
       _prefs.getInt(dailyKey(langId, day)) == 1;
 
-  /// Records a completed daily puzzle for [day] and updates the streak.
-  /// Consecutive days increment the streak; gaps or first play reset to 1.
   Future<void> recordDaily(String langId, DateTime day) async {
     final today = DateTime(day.year, day.month, day.day);
     final last = lastDailyDate;
     var s = streak;
-
     if (last != null) {
       final lastDay = DateTime(last.year, last.month, last.day);
       final diff = today.difference(lastDay).inDays;
@@ -74,9 +77,41 @@ class ProgressStore {
     } else {
       s = 1;
     }
-
     await _prefs.setInt(_streakKey, s);
     await _prefs.setString(_lastDailyKey, today.toIso8601String());
     await _prefs.setInt(dailyKey(langId, today), 1);
+  }
+
+  Future<void> saveGameState(String levelKey, Map<String, String> input, Set<String> revealed, int hintsUsed, int elapsedSeconds) async {
+    final data = jsonEncode({
+      'input': input,
+      'revealed': revealed.toList(),
+      'hints': hintsUsed,
+      'elapsed': elapsedSeconds,
+    });
+    await _prefs.setString('$_savePrefix$levelKey', data);
+  }
+
+  Map<String, dynamic>? loadGameState(String levelKey) {
+    final raw = _prefs.getString('$_savePrefix$levelKey');
+    if (raw == null) return null;
+    try {
+      return jsonDecode(raw) as Map<String, dynamic>;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> clearGameState(String levelKey) async {
+    await _prefs.remove('$_savePrefix$levelKey');
+  }
+
+  int? bestTimeFor(String key) => _prefs.getInt('$_bestTimePrefix$key');
+
+  Future<void> recordBestTime(String key, int seconds) async {
+    final current = bestTimeFor(key);
+    if (current == null || seconds < current) {
+      await _prefs.setInt('$_bestTimePrefix$key', seconds);
+    }
   }
 }
