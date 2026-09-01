@@ -1,16 +1,79 @@
-// Overlay pt-BR — adapta pistas/vocabulário para Brasil
 # facil
 label: Fácil
-description: Palavras curtas do dia a dia
-## Nível 1
-ONIBUS: Veículo coletivo que leva passageiros
+description: Palavras curtas do dia a dia — Brasil
+## Nível Brasil 1 — Vida no Brasil
+ONIBUS: Ônibus que leva passageiros na cidade
 TREM: Veículo que anda sobre trilhos
 CELULAR: Aparelho para fazer ligações
+GELADEIRA: Eletrodoméstico que mantém alimentos frios
+SUCO: Bebida feita de frutas
+BISCOITO: Bolacha crocante e saborosa
+FUTEBOL: Esporte mais popular do país
+SAMBA: Ritmo musical brasileiro
+CARNAVAL: Festa colorida de fevereiro
+PRAIA: Areia e mar para relaxar
+COXINHA: Salgado em forma de gota
+FEIJOADA: Prato com feijão preto e carnes
+CAIPIRINHA: Bebida com limão e cachaça
+AÇAÍ: Fruta roxa da Amazônia servida gelada
+BRIGADEIRO: Docinho de chocolate enrolado
+
+## Nível Brasil 2 — Cidade Brasileira
+FAVELA: Comunidade urbana nas encostas
+AVENIDA: Rua larga e movimentada
+SORVETERIA: Loja que vende sorvetes
+FARMACIA: Onde se compra remédio
+SHOPPING: Centro comercial com lojas
+CONDOMINIO: Conjunto de prédios fechado
+MOTOBOY: Entregador sobre duas rodas
+CHURRASCO: Carne assada na brasa
 
 # medio
 label: Médio
-description: Mais letras e temas variados
+description: Mais letras e temas do Brasil
+## Nível Brasil 1 — Cultura Brasileira
+CAPOEIRA: Dança-luta afro-brasileira
+SERTAO: Interior seco do Nordeste
+CAATINGA: Vegetação do semiárido
+PANTANAL: Maior planície alagada do mundo
+IGUACU: Cataratas na fronteira com Argentina
+BOSSA: Estilo musical suave do Rio
+FORRO: Ritmo animado do Nordeste
+MARACANA: Estádio famoso do Rio de Janeiro
+ipANEMA: Praia icónica do Rio
+SANTOS: Cidade portuária de São Paulo
+BRASILIA: Capital planeada no Planalto Central
+CERRADO: Savana brasileira de árvores retorcidas
+FREVO: Dança acelerada do Carnaval de Recife
+AXE: Ritmo da Bahia que contagia
+
+## Nível Brasil 2 — Sabores Brasileiros
+TAPIOCA: Disco de goma de mandioca
+PAMONHA: Milho verde enrolado na palha
+ACARAJE: Bolinho de feijão-fradinho com dendê
+MOQUECA: Ensopado baiano de peixe e dendê
+FEIJAO: Grão base da refeição diária
+MANDIOCA: Raiz também chamada aipim ou macaxeira
+GUARANA: Refrigerante e fruto da Amazônia
+CUPUACU: Fruto ácido da Amazônia
+JABUTICABA: Frutinha preta que nasce no tronco
+PITANGA: Frutinha vermelha agridoce
 
 # dificil
 label: Difícil
-description: Vocabulário amplo e expressões
+description: Vocabulário amplo — Brasil
+## Nível Brasil 1 — História e Geografia do Brasil
+INDEPENDENCIA: Grito do Ipiranga em 1822
+TIRADENTES: Mártir da Inconfidência Mineira
+AMAZONIA: Maior floresta tropical do mundo
+NORDESTE: Região do sertão e do forró
+SUL: Região dos pampas e do chimarrão
+CENTROOESTE: Região do Pantanal e do agronegócio
+OSCAR: Arquiteto de Brasília, Niemeyer
+MACHADO: Autor de Dom Casmurro, de Assis
+VILLALOBOS: Compositor de Trenzinho Caipira
+ABOLICAO: Fim da escravidão em 1888
+REPUBLICA: Proclamação em 1889 no Rio
+CANGACO: Bando de Lampião no sertão
+QUILOMBO: Refúgio de escravizados fugidos
+CANDOMBLE: Religião afro-brasileira

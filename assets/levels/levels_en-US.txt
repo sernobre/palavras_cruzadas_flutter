@@ -1,17 +1,71 @@
-// Overlay en-US — US spelling/semântica
 # facil
 label: Easy
-description: Short everyday words
-## Level 1
+description: Short everyday words — US
+## Level US 1 — Life in the US
 FAVORITE: Most liked thing
 COLOR: Visual property like red or blue
 GRAY: Color between black and white
 APARTMENT: Place where you live
+TRUCK: Large vehicle for hauling
+ELEVATOR: Lift to go up floors
+SIDEWALK: Path for pedestrians
+GAS: Fuel for cars
+CANDY: Sweet treat for kids
+COOKIE: Sweet baked snack
+FRENCH: Fries served with burgers
+BASEBALL: Bat and ball American pastime
+FOOTBALL: Game with helmets and touchdowns
+VACATION: Time off to travel
+DOWNTOWN: Center of the city
+SUBWAY: Underground train in NYC
+
+## Level US 2 — US Streets
+BLOCK: Distance between streets
+MALL: Large shopping center
+DRUGSTORE: Shop for medicine
+CORN: Yellow crop of the Midwest
+RANCH: Large farm in the West
+HIGHWAY: Fast road between cities
+TRASH: Garbage to throw away
 
 # medio
 label: Medium
-description: Longer words and varied topics
+description: Longer words — US
+## Level US 1 — US Culture
+HOLLYWOOD: Movie capital in California
+BROADWAY: Theater lights of New York
+JAZZ: Music born in New Orleans
+BARBECUE: Smoky meat feast of Texas
+HAMBURGER: Iconic American sandwich
+THANKSGIVING: Turkey feast in November
+INDEPENDENCE: July Fourth celebration
+GRANDCANYON: Huge gorge in Arizona
+YOSEMITE: Granite cliffs in California
+YELLOWSTONE: First national park
+SILICON: Valley of tech in California
+NASA: Space agency in Houston and Florida
+BLUES: Soulful music from Mississippi
+COUNTRY: Nashville sound of guitars
+
+## Level US 2 — US Flavors
+DONUT: Ring-shaped sweet with glaze
+PANCAKE: Flat breakfast cake with syrup
+BURRITO: Wrapped tortilla from the Southwest
+BROWNIE: Chocolate square baked treat
 
 # dificil
 label: Hard
-description: Wide vocabulary and phrases
+description: Wide vocabulary — US
+## Level US 1 — US History
+DECLARATION: 1776 document of freedom
+CONSTITUTION: Supreme law of 1787
+LINCOLN: President who ended slavery
+ROOSEVELT: Two presidents, Teddy and Franklin
+CIVILWAR: North versus South 1861-65
+SILICON: Valley innovation hub
+MANHATTAN: Project that built the atom bomb
+CAPITOL: Dome where Congress meets
+SUPREME: Court of nine justices
+AMENDMENT: Change to the Constitution
+FEDERALISM: Power split states and nation
+FRONTIER: Westward expansion myth

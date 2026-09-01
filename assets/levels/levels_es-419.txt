@@ -1,16 +1,72 @@
-// Overlay es-419 — LatAm (México/Latinoamérica)
 # facil
 label: Fácil
-description: Palabras cortas del día a día
-## Nivel 1
+description: Palabras cortas del día a día — LatAm
+## Nivel LatAm 1 — Vida en Latinoamérica
 CARRO: Vehículo de cuatro ruedas
-CELULAR: Aparato para hacer llamadas
-COMPUTADORA: Máquina para procesar información
+CELULAR: Teléfono portátil
+COMPUTADORA: Máquina para trabajar
+REFRIGERADOR: Electrodoméstico que enfría alimentos
+JUGO: Bebida de frutas exprimidas
+GALLETA: Dulce crujiente
+DEPARTAMENTO: Vivienda en edificio
+PAPA: Tubérculo, patata en España
+PLAYA: Arena junto al mar
+TACO: Tortilla mexicana con relleno
+AREPA: Pan de maíz de Venezuela y Colombia
+EMPANADA: Masa rellena y horneada
+CEVICHE: Pescado marinado con limón
+MATE: Infusión de yerba en Argentina y Uruguay
+CHOCLO: Mazorca de maíz en los Andes
+
+## Nivel LatAm 2 — Calles de Latinoamérica
+BARRIO: Zona de la ciudad
+MERCADO: Donde se compra fresco
+PLAZA: Espacio con puestos y música
+COLECTIVO: Autobús urbano en Argentina
+COMBI: Transporte pequeño y colorido
+METRO: Tren subterráneo
 
 # medio
 label: Medio
-description: Más letras y temas variados
+description: Más letras y temas de Latinoamérica
+## Nivel LatAm 1 — Cultura Latinoamericana
+MARACANA: Estadio mítico de Río
+MACHUPICCHU: Ciudad inca en las nubes
+TANGO: Baile apasionado de Buenos Aires
+CUMBIA: Ritmo caribeño contagioso
+SALSA: Baile del Caribe
+MARIACHI: Músicos mexicanos con trompeta
+FRIDA: Pintora mexicana de cejas pobladas
+GABRIEL: García Márquez, Nobel colombiano
+BORGES: Escritor argentino de laberintos
+ANDES: Cordillera más larga del mundo
+AMAZONAS: Río más caudaloso del planeta
+PATAGONIA: Tierra austral de glaciares
+CARIBE: Mar de islas y ron
+ALTIPLANO: Meseta andina a 4000 metros
+QUINOA: Grano sagrado de los incas
+
+## Nivel LatAm 2 — Sabores de Latinoamérica
+GUACAMOLE: Puré de palta con limón
+PALTA: Aguacate en el Cono Sur
+CHURRASCO: Carne a la parrilla
+PISCO: Destilado de uva peruano-chileno
+DULCE: De leche, manjar de la región
+LOCRO: Guiso andino de maíz y porotos
 
 # dificil
 label: Difícil
-description: Vocabulario amplio y expresiones
+description: Vocabulario amplio — Latinoamérica
+## Nivel LatAm 1 — Historia Latinoamericana
+INDEPENDENCIA: Grito de 1810 en México y Argentina
+BOLIVAR: Libertador de cinco naciones
+SANMARTIN: Cruce de los Andes a caballo
+ZAPATA: Revolución agraria mexicana
+PERON: Movimiento político argentino
+ALLENDE: Presidente socialista chileno
+REVOLUCION: Mexicana y cubana, dos hitos
+AZTECA: Imperio de Tenochtitlán
+INCA: Imperio del sol en Cuzco
+MAYA: Ciudades perdidas en la selva
+GUEVARA: El Che, guerrillero argentino-cubano
+NERUDA: Poeta chileno, Nobel de Literatura

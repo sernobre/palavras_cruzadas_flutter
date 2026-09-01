@@ -1,15 +1,73 @@
-// Overlay PT-PT — deltas sobre base pt (levels_pt.txt)
-// Apenas entradas que diferem/afinam para PT-PT. Formato idêntico ao base.
-// Palavras com prefixo '-' removem do base (ex: -CELULAR).
-
 # facil
 label: Fácil
-description: Palavras curtas do dia a dia
+description: Palavras curtas do dia a dia — Portugal
+## Nível Portugal 1 — Vida em Portugal
+AUTOCARRO: Veículo coletivo de passageiros
+COMBOIO: Veículo que anda sobre carris
+TELEMOVEL: Aparelho para fazer chamadas
+FRIGORIFICO: Eletrodoméstico que mantém frescos os alimentos
+SUMO: Bebida feita de frutos
+BOLACHA: Biscoito crocante
+TELEVISAO: Ecrã que mostra programas
+COMPUTADOR: Máquina para trabalhar e jogar
+FUTEBOL: Desporto rei em Portugal
+FADO: Canção cheia de saudade
+AZULEJO: Quadrado de cerâmica pintada
+PASTEL: Doce de Belém famoso
+SARDINHA: Peixe grelhado nos Santos Populares
+CALDO: Sopa quente reconfortante
+GINJINHA: Licor de cereja de Lisboa
+
+## Nível Portugal 2 — Ruas de Portugal
+ALDEIA: Pequena povoação no interior
+BAIRRO: Zona da cidade com vizinhos
+MERCADO: Onde se compra peixe fresco
+PRACA: Largo central com café
+ELÉTRICO: Carruagem amarela sobre carris em Lisboa
+TUKTUK: Veículo turístico nas colinas de Lisboa
+PASSEIO: Calçada larga à beira-rio
 
 # medio
 label: Médio
-description: Mais letras e temas variados
+description: Palavras do quotidiano — Portugal
+## Nível Portugal 1 — Cultura Portuguesa
+SAUDADE: Sentimento que só português entende
+ALENTEJO: Região de planícies e sobreiros
+MINHO: Região verde do norte
+DOURO: Rio do vinho do Porto
+ALGARVE: Região de praias douradas
+AZORES: Ilhas no meio do Atlântico
+MADEIRA: Ilha do vinho e das levadas
+LUSIADAS: Epopeia de Luís de Camões
+PESSOA: Poeta de heterónimos, Fernando
+AMALIA: Rainha do fado, Rodrigues
+SARAMAGO: Nobel da Literatura português
+AZEITE: Ouro líquido da oliveira alentejana
+BACALHAU: Rei da mesa portuguesa
+CORTICA: Casca do sobreiro alentejano
+VINDIMA: Colheita da uva no Douro
+
+## Nível Portugal 2 — Sabores de Portugal
+CALDO: Sopa verde com couve
+FRANCESINHA: Sanduíche do Porto com molho
+LEITAO: Porco assado à Bairrada
+ARRAIAL: Festa popular de verão
+MANJERICO: Planta dos Santos Populares
+GRANITO: Pedra das casas do norte
 
 # dificil
 label: Difícil
-description: Vocabulário alargado e expressões
+description: Vocabulário exigente — Portugal
+## Nível Portugal 1 — História de Portugal
+DESCOBRIMENTOS: Viagens que deram novos mundos
+CARAVELA: Navio dos navegadores
+INFANTE: Henrique, o Navegador
+POMBAL: Marquês que reconstruiu Lisboa
+REVOLUCAO: 25 de Abril de 1974
+CRAVO: Flor símbolo da liberdade
+ULTRAMAR: Guerra antiga nas colónias
+FADO: Património da Humanidade
+GALO: Símbolo de Barcelos
+LUSOFONIA: Comunidade de língua portuguesa
+CORTES: Antigo parlamento medieval
+SEBASTIAO: Rei desaparecido em Alcácer-Quibir

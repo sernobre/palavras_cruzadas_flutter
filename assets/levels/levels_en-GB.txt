@@ -1,17 +1,72 @@
-// Overlay en-GB — UK spelling/semântica
 # facil
 label: Easy
-description: Short everyday words
-## Level 1
+description: Short everyday words — UK
+## Level UK 1 — Life in the UK
 FAVOURITE: Most liked thing
 COLOUR: Visual property like red or blue
 GREY: Color between black and white
 FLAT: Place where you live (UK)
+LORRY: Large vehicle for hauling
+LIFT: Box to go up floors
+PAVEMENT: Path for pedestrians
+PETROL: Fuel for cars
+SWEETS: Sugary treats for kids
+BISCUIT: Sweet baked snack
+CHIPS: Fried potatoes with fish
+CRICKET: Bat and ball on a green
+FOOTBALL: Game with goals and Offside
+HOLIDAY: Time off to travel
+CITYCENTRE: Heart of the town
+TUBE: Underground train in London
+
+## Level UK 2 — UK Streets
+TERRACE: Row of joined houses
+HIGGSTREET: Main shopping street
+CHEMIST: Shop for medicine
+FLAT: Apartment in a building
+ESTATE: Area of houses and flats
+MOTORWAY: Fast road between cities
+RUBBISH: Waste to throw away
 
 # medio
 label: Medium
-description: Longer words and varied topics
+description: Longer words — UK
+## Level UK 1 — UK Culture
+WESTEND: Theatre lights of London
+HOLLYWOOD: Borrowed but beloved — US
+BRITPOP: Music of Oasis and Blur
+ROAST: Sunday dinner with gravy
+FISHANDCHIPS: Seaside supper wrapped in paper
+AFTERNOONTEA: Scones with clotted cream
+BONFIRE: Fifth of November with fireworks
+THAMES: River winding through London
+COTSWOLDS: Honey-stone villages
+LAKE: District of Wordsworth
+EDINBURGH: Festival capital of Scotland
+STONEHENGE: Ancient stones on Salisbury Plain
+BBC: Broadcaster of the nation
+SHAKESPEARE: Bard of Stratford-upon-Avon
+BEATLES: Four lads from Liverpool
+
+## Level UK 2 — UK Flavours
+SCONE: Baked treat with jam and cream
+CRUMPET: Griddled cake with holes
+SAUSAGE: Roll in batter, toad in the hole
+PUDDING: Yorkshire, not just dessert
 
 # dificil
 label: Hard
-description: Wide vocabulary and phrases
+description: Wide vocabulary — UK
+## Level UK 1 — UK History
+MAGNA: Carta sealed at Runnymede 1215
+PARLIAMENT: Commons and Lords at Westminster
+CROMWELL: Lord Protector who beheaded a king
+TUDOR: Dynasty of Henry VIII and Elizabeth I
+VICTORIA: Queen of the long nineteenth century
+EMPIRE: On which the sun never set
+COMMONWEALTH: Family of former colonies
+BREXIT: 2016 vote to leave the EU
+WHITEHALL: Street of government ministries
+DOWNING: Street where the PM lives, Number 10
+MONARCHY: Crown above politics
+DEVOLUTION: Power to Scotland, Wales, NI

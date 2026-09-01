@@ -1,12 +1,70 @@
-// Overlay es-ES — afinado para Espanha peninsular
 # facil
 label: Fácil
-description: Palabras cortas del día a día
+description: Palabras cortas del día a día — España
+## Nivel España 1 — Vida en España
+COCHE: Vehículo de cuatro ruedas
+ORDENADOR: Máquina para trabajar
+MOVIL: Teléfono portátil
+FRIGORIFICO: Electrodoméstico que enfría alimentos
+ZUMO: Bebida de frutas exprimidas
+GALLETA: Dulce crujiente redondo
+PISO: Vivienda en un edificio
+PATATA: Tubérculo frito o cocido
+PLAYA: Arena junto al mar
+TAPAS: Pequeñas raciones para compartir
+PAELLA: Arroz con marisco de Valencia
+JAMON: Pierna curada de cerdo ibérico
+TORTILLA: Huevos con patata cuajada
+CHURROS: Masa frita con chocolate
+SANGRIA: Bebida de vino y frutas
+
+## Nivel España 2 — Calles de España
+BARRIO: Zona de la ciudad
+MERCADO: Donde se compra pescado fresco
+PLAZA: Espacio abierto con terrazas
+AUTOBUS: Transporte colectivo urbano
+METRO: Tren subterráneo de la ciudad
+TRANVIA: Tren ligero sobre raíles
 
 # medio
 label: Medio
-description: Más letras y temas variados
+description: Más letras y temas de España
+## Nivel España 1 — Cultura Española
+FLAMENCO: Arte andaluz de cante y baile
+SIESTA: Descanso después de comer
+TAPEO: Ir de bar en bar por tapas
+ALHAMBRA: Palacio nazarí de Granada
+SAGRADA: Basílica de Gaudí en Barcelona
+QUIJOTE: Caballero de La Mancha de Cervantes
+PICASSO: Pintor malagueño del cubismo
+DALI: Genio surrealista de Figueres
+GOYA: Pintor de la corte española
+IBERIA: Península que compartimos con Portugal
+MESETA: Llanura central de España
+PIRINEOS: Montañas frontera con Francia
+BALEARES: Islas de Mallorca y Ibiza
+CANARIAS: Islas atlánticas del Teide
+
+## Nivel España 2 — Sabores de España
+GAZPACHO: Sopa fría de tomate y pepino
+CROQUETA: Bocado cremoso rebozado y frito
+PULPO: Plato gallego con pimentón
+FABADA: Alubias asturianas contundentes
+SIDRA: Bebida de manzana escanciada
 
 # dificil
 label: Difícil
-description: Vocabulario amplio y expresiones
+description: Vocabulario amplio — España
+## Nivel España 1 — Historia de España
+RECONQUISTA: Ocho siglos contra Al-Ándalus
+ALANDALUS: Nombre musulmán de la península
+CORDOBA: Mezquita convertida en catedral
+SEFARAD: Nombre hebreo de España
+CARLOS: Rey emperador, quinto de su nombre
+FELIPE: Rey prudente del Escorial
+ARMADA: Flota invencible contra Inglaterra
+ILUSTRACION: Siglo de las luces español
+CONSTITUCION: De 1978, la vigente
+TRANSICION: Paso a la democracia tras Franco
+GUERNICA: Cuadro de Picasso sobre el bombardeo
+LORCA: Poeta granadino fusilado
