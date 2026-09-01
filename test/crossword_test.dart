@@ -48,7 +48,7 @@ void main() {
 
   test('spanish alphabet keeps Ñ', () async {
     final languages = await loadLanguages();
-    final es = languages.firstWhere((l) => l.id == 'es');
+    final es = languages.firstWhere((l) => l.variantId == 'es-ES');
     expect(es.alphabet.contains('Ñ'), isTrue);
     expect(normalizeWord('AÑO', es.alphabet.toSet()), equals('AÑO'));
     final puzzle = generateCrossword(

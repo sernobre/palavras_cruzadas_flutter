@@ -1,0 +1,17 @@
+// Overlay en-US — US spelling/semântica
+# facil
+label: Easy
+description: Short everyday words
+## Level 1
+FAVORITE: Most liked thing
+COLOR: Visual property like red or blue
+GRAY: Color between black and white
+APARTMENT: Place where you live
+
+# medio
+label: Medium
+description: Longer words and varied topics
+
+# dificil
+label: Hard
+description: Wide vocabulary and phrases

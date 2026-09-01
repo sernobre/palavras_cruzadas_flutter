@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/screens/game_screen.dart';
+import 'package:palavrascruzadas/screens/paywall_screen.dart';
 import 'package:palavrascruzadas/services/progress.dart';
+import 'package:palavrascruzadas/services/purchase_service.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 import 'package:palavrascruzadas/widgets/star_row.dart';
 
@@ -203,42 +205,26 @@ class _DifficultyScreenState extends State<DifficultyScreen> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(14),
                         onTap: () async {
-                          await store.setPro(true);
-                          setState(() {});
-                          if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text(
-                                      'Pro desbloqueado (demonstração local).')),
-                            );
-                          }
+                          final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(
+                              builder: (_) => PaywallScreen(variantId: widget.language.variantId, store: store)));
+                          if (ok == true) setState(() {});
                         },
                         child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                           decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
-                            ),
+                            gradient: const LinearGradient(colors: [Color(0xFF6A11CB), Color(0xFF2575FC)]),
                             borderRadius: BorderRadius.circular(14),
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Icon(Icons.workspace_premium_rounded,
-                                  color: Colors.white),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  'Pro: dicas ilimitadas e sem anúncios',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                ),
+                              const Icon(Icons.workspace_premium_rounded, color: Colors.white),
+                              const SizedBox(width: 10),
+                              const Expanded(
+                                child: Text('Pro: dicas ilimitadas e sem anúncios',
+                                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
                               ),
-                              Text('Desbloquear',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700)),
+                              Text(priceFor(widget.language.variantId),
+                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
                             ],
                           ),
                         ),

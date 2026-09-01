@@ -5,6 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 String levelKey(String langId, String diffId, String levelName) =>
     '${langId}_${diffId}_$levelName';
 
+String variantLevelKey(String variantId, String diffId, String levelName) =>
+    '${variantId}_${diffId}_$levelName';
+
 String dailyKey(String langId, DateTime day) =>
     'daily_${langId}_${_dayString(day)}';
 
@@ -13,10 +16,13 @@ String _dayString(DateTime d) => '${d.year}-${d.month}-${d.day}';
 class ProgressStore {
   static const String _starsPrefix = 'stars_';
   static const String _proKey = 'pro_unlocked';
+  static const String _proSourceKey = 'pro_source';
+  static const String _proExpiryKey = 'pro_expiry';
   static const String _streakKey = 'streak';
   static const String _lastDailyKey = 'last_daily';
   static const String _savePrefix = 'save_';
   static const String _bestTimePrefix = 'best_time_';
+  static const String _selectedVariantKey = 'selected_variant';
 
   final SharedPreferences _prefs;
 
@@ -24,10 +30,42 @@ class ProgressStore {
 
   static Future<ProgressStore> load() async {
     final prefs = await SharedPreferences.getInstance();
-    return ProgressStore(prefs);
+    final store = ProgressStore(prefs);
+    await store._migrateLegacyKeys();
+    return store;
   }
 
   SharedPreferences get prefs => _prefs;
+
+  Future<void> _migrateLegacyKeys() async {
+    const legacyMap = {'pt': 'pt-PT', 'es': 'es-ES', 'en': 'en-US'};
+    for (final entry in legacyMap.entries) {
+      final legacyPrefixStars = '${_starsPrefix}${entry.key}_';
+      final newPrefixStars = '${_starsPrefix}${entry.value}_';
+      final legacyPrefixSave = '${_savePrefix}${entry.key}_';
+      final newPrefixSave = '${_savePrefix}${entry.value}_';
+      final legacyPrefixTime = '${_bestTimePrefix}${entry.key}_';
+      final newPrefixTime = '${_bestTimePrefix}${entry.value}_';
+      for (final k in _prefs.getKeys().toList()) {
+        if (k.startsWith(legacyPrefixStars) && !_prefs.containsKey(k.replaceFirst(legacyPrefixStars, newPrefixStars))) {
+          final v = _prefs.getInt(k);
+          if (v != null) await _prefs.setInt(k.replaceFirst(legacyPrefixStars, newPrefixStars), v);
+        }
+        if (k.startsWith(legacyPrefixSave) && !_prefs.containsKey(k.replaceFirst(legacyPrefixSave, newPrefixSave))) {
+          final v = _prefs.getString(k);
+          if (v != null) await _prefs.setString(k.replaceFirst(legacyPrefixSave, newPrefixSave), v);
+        }
+        if (k.startsWith(legacyPrefixTime) && !_prefs.containsKey(k.replaceFirst(legacyPrefixTime, newPrefixTime))) {
+          final v = _prefs.getInt(k);
+          if (v != null) await _prefs.setInt(k.replaceFirst(legacyPrefixTime, newPrefixTime), v);
+        }
+        if (k.startsWith('daily_${entry.key}_') && !_prefs.containsKey(k.replaceFirst('daily_${entry.key}_', 'daily_${entry.value}_'))) {
+          final v = _prefs.getInt(k);
+          if (v != null) await _prefs.setInt(k.replaceFirst('daily_${entry.key}_', 'daily_${entry.value}_'), v);
+        }
+      }
+    }
+  }
 
   int starsFor(String key) => _prefs.getInt('$_starsPrefix$key') ?? 0;
 
@@ -49,8 +87,29 @@ class ProgressStore {
       keys.where((k) => starsFor(k) > 0).length;
 
   bool get isPro => _prefs.getBool(_proKey) ?? false;
+  String? get proSource => _prefs.getString(_proSourceKey);
+  DateTime? get proExpiry {
+    final v = _prefs.getInt(_proExpiryKey);
+    return v == null ? null : DateTime.fromMillisecondsSinceEpoch(v);
+  }
 
-  Future<void> setPro(bool value) => _prefs.setBool(_proKey, value);
+  bool get isProValid {
+    if (!isPro) return false;
+    final exp = proExpiry;
+    if (exp == null) return true;
+    return DateTime.now().isBefore(exp);
+  }
+
+  Future<void> setPro(bool value, {String source = 'mock', DateTime? expiry}) async {
+    await _prefs.setBool(_proKey, value);
+    if (value) {
+      await _prefs.setString(_proSourceKey, source);
+      if (expiry != null) await _prefs.setInt(_proExpiryKey, expiry.millisecondsSinceEpoch);
+    } else {
+      await _prefs.remove(_proSourceKey);
+      await _prefs.remove(_proExpiryKey);
+    }
+  }
 
   int get streak => _prefs.getInt(_streakKey) ?? 0;
 
@@ -114,4 +173,7 @@ class ProgressStore {
       await _prefs.setInt('$_bestTimePrefix$key', seconds);
     }
   }
+
+  String? get selectedVariantId => _prefs.getString(_selectedVariantKey);
+  Future<void> setSelectedVariant(String v) => _prefs.setString(_selectedVariantKey, v);
 }

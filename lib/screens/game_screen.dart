@@ -7,6 +7,8 @@ import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/models/generator.dart';
 import 'package:palavrascruzadas/services/progress.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
+import 'package:palavrascruzadas/screens/paywall_screen.dart';
+import 'package:palavrascruzadas/services/purchase_service.dart';
 import 'package:palavrascruzadas/widgets/clue_panel.dart';
 import 'package:palavrascruzadas/widgets/crossword_board.dart';
 import 'package:palavrascruzadas/widgets/keyboard.dart';
@@ -355,19 +357,26 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
       builder: (_) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text('Dicas esgotadas'),
-        content: const Text('Usaste as tuas dicas grátis deste nível. Desbloqueia o Pro para ter dicas ilimitadas.'),
+        content: Text('Usaste as tuas dicas grátis deste nível. Desbloqueia o Pro por ${priceFor(widget.language.variantId)} para dicas ilimitadas.'),
         actions: [
           TextButton(onPressed: () => Navigator.pop(context), child: const Text('Mais tarde')),
           FilledButton(
             onPressed: () {
               Navigator.pop(context);
-              _unlockPro();
+              _openPaywall();
             },
-            child: const Text('Desbloquear Pro'),
+            child: const Text('Ver Pro'),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _openPaywall() async {
+    final s = _store ?? await ProgressStore.load();
+    if (!mounted) return;
+    final ok = await Navigator.of(context).push<bool>(MaterialPageRoute(builder: (_) => PaywallScreen(variantId: widget.language.variantId, store: s)));
+    if (ok == true && mounted) setState(() => _store = s);
   }
 
   Future<void> _unlockPro() async {

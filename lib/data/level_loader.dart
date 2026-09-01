@@ -1,27 +1,7 @@
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/crossword.dart';
-
-/// Formato (um ficheiro por idioma), ex.:
-///
-/// # facil
-/// label: Fácil
-/// description: Palavras curtas do dia a dia
-/// ## Nível 1
-/// SOL: Astro que ilumina o dia
-/// MAR: Grande extensão de água salgada
-/// ## Nível 2
-/// ...
-/// # medio
-/// ...
-///
-/// Regras:
-/// - Linhas vazias ou que começam por `//` são ignoradas.
-/// - `# id` inicia uma dificuldade (id em minúsculas: facil/medio/dificil).
-/// - `label:` e `description:` (após `#`) definem o texto da dificuldade.
-/// - `## Nome` inicia um nível.
-/// - `PALAVRA: pista` adiciona uma entrada ao nível atual.
-/// A normalização de acentos/caracteres é feita pelo gerador.
+import 'languages.dart' show variantFor;
 
 List<Difficulty> parseLevels(String text) {
   final difficulties = <Difficulty>[];
@@ -91,8 +71,61 @@ String serializeLevels(List<Difficulty> difficulties) {
   return buffer.toString();
 }
 
+List<Difficulty> mergeLevels(List<Difficulty> base, List<Difficulty> overlay) {
+  if (overlay.isEmpty) return base;
+  final byId = {for (final d in base) d.id: d};
+  for (final od in overlay) {
+    final existing = byId[od.id];
+    if (existing == null) {
+      base.add(Difficulty(id: od.id, label: od.label, description: od.description, levels: od.levels));
+      byId[od.id] = base.last;
+      continue;
+    }
+    if (od.label != od.id) existing.label = od.label;
+    if (od.description.isNotEmpty) existing.description = od.description;
+    final levelByName = {for (final l in existing.levels) l.name: l};
+    for (final ol in od.levels) {
+      final el = levelByName[ol.name];
+      if (el == null) {
+        existing.levels.add(ol);
+        continue;
+      }
+      final entryByWord = {for (final e in el.entries) e.word.toUpperCase(): e};
+      for (final oe in ol.entries) {
+        final key = oe.word.toUpperCase();
+        if (entryByWord.containsKey(key)) {
+          final idx = el.entries.indexWhere((e) => e.word.toUpperCase() == key);
+          if (idx >= 0) el.entries[idx] = oe;
+        } else {
+          el.entries.add(oe);
+        }
+      }
+      for (final oe in ol.entries) {
+        if (oe.word.startsWith('-')) {
+          final toRemove = oe.word.substring(1).toUpperCase();
+          el.entries.removeWhere((e) => e.word.toUpperCase() == toRemove);
+        }
+      }
+    }
+  }
+  return base;
+}
+
 Future<List<Difficulty>> loadLevelsFor(String langId) async {
-  final text =
-      await rootBundle.loadString('assets/levels/levels_$langId.txt');
+  final text = await rootBundle.loadString('assets/levels/levels_$langId.txt');
   return parseLevels(text);
+}
+
+Future<List<Difficulty>> loadLevelsForVariant(String variantId) async {
+  final v = variantFor(variantId);
+  final baseText = await rootBundle.loadString('assets/levels/levels_${v.assetBase}.txt');
+  final base = parseLevels(baseText);
+  if (v.assetOverlay == null) return base;
+  try {
+    final overlayText = await rootBundle.loadString('assets/levels/levels_${v.assetOverlay}.txt');
+    final overlay = parseLevels(overlayText);
+    return mergeLevels(base, overlay);
+  } catch (_) {
+    return base;
+  }
 }

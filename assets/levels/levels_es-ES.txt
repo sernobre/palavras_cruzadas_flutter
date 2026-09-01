@@ -1,0 +1,12 @@
+// Overlay es-ES — afinado para Espanha peninsular
+# facil
+label: Fácil
+description: Palabras cortas del día a día
+
+# medio
+label: Medio
+description: Más letras y temas variados
+
+# dificil
+label: Difícil
+description: Vocabulario amplio y expresiones

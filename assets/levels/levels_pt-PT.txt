@@ -1,0 +1,15 @@
+// Overlay PT-PT — deltas sobre base pt (levels_pt.txt)
+// Apenas entradas que diferem/afinam para PT-PT. Formato idêntico ao base.
+// Palavras com prefixo '-' removem do base (ex: -CELULAR).
+
+# facil
+label: Fácil
+description: Palavras curtas do dia a dia
+
+# medio
+label: Médio
+description: Mais letras e temas variados
+
+# dificil
+label: Difícil
+description: Vocabulário alargado e expressões

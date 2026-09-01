@@ -46,6 +46,8 @@ class UiStrings {
 
 class Language {
   final String id;
+  final String variantId;
+  final String baseId;
   final String label;
   final List<String> alphabet;
   final List<Difficulty> difficulties;
@@ -53,6 +55,8 @@ class Language {
 
   const Language({
     required this.id,
+    required this.variantId,
+    required this.baseId,
     required this.label,
     required this.alphabet,
     required this.difficulties,
@@ -72,9 +76,8 @@ const List<String> _azNList = [..._azList, 'Ñ'];
 
 const UiStrings _ptUi = UiStrings(
   appTitle: 'Palavras Cruzadas',
-  subtitle: 'Português',
-  homeHint:
-      'Escolhe um nível de dificuldade para começar a resolver o puzzle.',
+  subtitle: 'Português (PT)',
+  homeHint: 'Escolhe um nível de dificuldade para começar a resolver o puzzle.',
   clues: 'Pistas',
   newPuzzle: 'Novo puzzle',
   tapToStart: 'Toca numa casa para começar',
@@ -90,9 +93,28 @@ const UiStrings _ptUi = UiStrings(
   close: 'Fechar',
 );
 
+const UiStrings _ptBrUi = UiStrings(
+  appTitle: 'Palavras Cruzadas',
+  subtitle: 'Português (BR)',
+  homeHint: 'Escolha um nível de dificuldade para começar.',
+  clues: 'Pistas',
+  newPuzzle: 'Novo puzzle',
+  tapToStart: 'Toque numa casa para começar',
+  hint: 'Dica',
+  clear: 'Limpar',
+  check: 'Verificar',
+  across: 'Horizontais',
+  down: 'Verticais',
+  solvedTitle: 'Parabéns!',
+  statusTitle: 'Status do puzzle',
+  solvedBody: 'Você resolveu o puzzle por completo!',
+  lettersWord: 'letras',
+  close: 'Fechar',
+);
+
 const UiStrings _esUi = UiStrings(
   appTitle: 'Crucigramas',
-  subtitle: 'Español',
+  subtitle: 'Español (ES)',
   homeHint: 'Elige un nivel de dificultad para empezar a resolver el puzzle.',
   clues: 'Pistas',
   newPuzzle: 'Nuevo puzzle',
@@ -109,9 +131,28 @@ const UiStrings _esUi = UiStrings(
   close: 'Cerrar',
 );
 
-const UiStrings _enUi = UiStrings(
+const UiStrings _es419Ui = UiStrings(
+  appTitle: 'Crucigramas',
+  subtitle: 'Español (LatAm)',
+  homeHint: 'Elige un nivel de dificultad para empezar.',
+  clues: 'Pistas',
+  newPuzzle: 'Nuevo puzzle',
+  tapToStart: 'Toca una casilla para empezar',
+  hint: 'Pista',
+  clear: 'Borrar',
+  check: 'Verificar',
+  across: 'Horizontales',
+  down: 'Verticales',
+  solvedTitle: '¡Felicidades!',
+  statusTitle: 'Estado del puzzle',
+  solvedBody: '¡Has completado el puzzle por completo!',
+  lettersWord: 'letras',
+  close: 'Cerrar',
+);
+
+const UiStrings _enUsUi = UiStrings(
   appTitle: 'Crossword',
-  subtitle: 'English',
+  subtitle: 'English (US)',
   homeHint: 'Choose a difficulty level to start solving the puzzle.',
   clues: 'Clues',
   newPuzzle: 'New puzzle',
@@ -128,31 +169,109 @@ const UiStrings _enUi = UiStrings(
   close: 'Close',
 );
 
-class _LanguageDef {
-  final String id;
+const UiStrings _enGbUi = UiStrings(
+  appTitle: 'Crossword',
+  subtitle: 'English (UK)',
+  homeHint: 'Choose a difficulty level to start solving the puzzle.',
+  clues: 'Clues',
+  newPuzzle: 'New puzzle',
+  tapToStart: 'Tap a cell to start',
+  hint: 'Hint',
+  clear: 'Clear',
+  check: 'Check',
+  across: 'Across',
+  down: 'Down',
+  solvedTitle: 'Congratulations!',
+  statusTitle: 'Puzzle status',
+  solvedBody: 'You solved the whole puzzle. Well done!',
+  lettersWord: 'letters',
+  close: 'Close',
+);
+
+class LocaleVariant {
+  final String variantId;
+  final String baseId;
   final String label;
   final List<String> alphabet;
   final UiStrings ui;
+  final String assetBase;
+  final String? assetOverlay;
 
-  const _LanguageDef(this.id, this.label, this.alphabet, this.ui);
+  const LocaleVariant({
+    required this.variantId,
+    required this.baseId,
+    required this.label,
+    required this.alphabet,
+    required this.ui,
+    required this.assetBase,
+    this.assetOverlay,
+  });
 }
 
-const List<_LanguageDef> _defs = [
-  _LanguageDef('pt', 'Português', _azList, _ptUi),
-  _LanguageDef('es', 'Español', _azNList, _esUi),
-  _LanguageDef('en', 'English', _azList, _enUi),
+const List<LocaleVariant> localeVariants = [
+  LocaleVariant(variantId: 'pt-PT', baseId: 'pt', label: 'Português (PT)', alphabet: _azList, ui: _ptUi, assetBase: 'pt', assetOverlay: 'pt-PT'),
+  LocaleVariant(variantId: 'pt-BR', baseId: 'pt', label: 'Português (BR)', alphabet: _azList, ui: _ptBrUi, assetBase: 'pt', assetOverlay: 'pt-BR'),
+  LocaleVariant(variantId: 'es-ES', baseId: 'es', label: 'Español (ES)', alphabet: _azNList, ui: _esUi, assetBase: 'es', assetOverlay: 'es-ES'),
+  LocaleVariant(variantId: 'es-419', baseId: 'es', label: 'Español (LatAm)', alphabet: _azNList, ui: _es419Ui, assetBase: 'es', assetOverlay: 'es-419'),
+  LocaleVariant(variantId: 'en-US', baseId: 'en', label: 'English (US)', alphabet: _azList, ui: _enUsUi, assetBase: 'en', assetOverlay: 'en-US'),
+  LocaleVariant(variantId: 'en-GB', baseId: 'en', label: 'English (UK)', alphabet: _azList, ui: _enGbUi, assetBase: 'en', assetOverlay: 'en-GB'),
 ];
+
+const Map<String, String> _variantFallback = {
+  'pt': 'pt-PT',
+  'es': 'es-ES',
+  'en': 'en-US',
+  'pt-PT': 'pt-PT',
+  'pt-BR': 'pt-BR',
+  'es-ES': 'es-ES',
+  'es-419': 'es-419',
+  'en-US': 'en-US',
+  'en-GB': 'en-GB',
+};
+
+String resolveVariantId(String raw) {
+  final lower = raw.toLowerCase();
+  if (_variantFallback.containsKey(lower)) return _variantFallback[lower]!;
+  if (lower.startsWith('pt')) return 'pt-PT';
+  if (lower.startsWith('es')) return 'es-ES';
+  if (lower.startsWith('en-gb') || lower == 'en-uk') return 'en-GB';
+  if (lower.startsWith('en')) return 'en-US';
+  return 'pt-PT';
+}
+
+LocaleVariant variantFor(String variantId) =>
+    localeVariants.firstWhere((v) => v.variantId == variantId, orElse: () => localeVariants.first);
 
 Future<List<Language>> loadLanguages() async {
   final List<Language> result = [];
-  for (final def in _defs) {
-    final difficulties = await loadLevelsFor(def.id);
+  for (final v in localeVariants) {
+    final difficulties = await loadLevelsForVariant(v.variantId);
     result.add(Language(
-      id: def.id,
-      label: def.label,
-      alphabet: def.alphabet,
+      id: v.variantId,
+      variantId: v.variantId,
+      baseId: v.baseId,
+      label: v.label,
+      alphabet: v.alphabet,
       difficulties: difficulties,
-      ui: def.ui,
+      ui: v.ui,
+    ));
+  }
+  return result;
+}
+
+Future<List<Language>> loadLanguagesForIds(List<String> ids) async {
+  final List<Language> result = [];
+  for (final id in ids) {
+    final v = variantFor(resolveVariantId(id));
+    final difficulties = await loadLevelsForVariant(v.variantId);
+    result.add(Language(
+      id: v.variantId,
+      variantId: v.variantId,
+      baseId: v.baseId,
+      label: v.label,
+      alphabet: v.alphabet,
+      difficulties: difficulties,
+      ui: v.ui,
     ));
   }
   return result;
@@ -163,7 +282,6 @@ String _dailyName(DateTime date) =>
     '${date.month.toString().padLeft(2, '0')}/'
     '${date.year}';
 
-/// Builds a deterministic daily puzzle from all words of [lang] for [date].
 Level buildDailyLevel(Language lang, DateTime date, {int count = 9}) {
   final all = lang.difficulties
       .expand((d) => d.levels)
@@ -183,7 +301,6 @@ Level buildDailyLevel(Language lang, DateTime date, {int count = 9}) {
   return Level(name: _dailyName(date), entries: unique.take(count).toList());
 }
 
-/// A synthetic difficulty holding only the daily puzzle for [date].
 Difficulty buildDailyDifficulty(Language lang, DateTime date) => Difficulty(
       id: 'diario',
       label: 'Puzzle Diário',

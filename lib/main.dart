@@ -3,6 +3,7 @@ import 'package:palavrascruzadas/data/languages.dart';
 import 'package:palavrascruzadas/models/crossword.dart';
 import 'package:palavrascruzadas/screens/difficulty_screen.dart';
 import 'package:palavrascruzadas/screens/game_screen.dart';
+import 'package:palavrascruzadas/screens/settings_screen.dart';
 import 'package:palavrascruzadas/services/progress.dart';
 import 'package:palavrascruzadas/theme/app_theme.dart';
 
@@ -56,7 +57,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _loadStore() async {
     final store = await ProgressStore.load();
-    if (mounted) setState(() => _store = store);
+    final saved = store.selectedVariantId;
+    var idx = 0;
+    if (saved != null) {
+      final found = widget.languages.indexWhere((l) => l.id == saved);
+      if (found >= 0) idx = found;
+    }
+    if (mounted) setState(() { _store = store; _selected = idx; });
+  }
+
+  Future<void> _setLanguage(int i) async {
+    setState(() => _selected = i);
+    await _store?.setSelectedVariant(widget.languages[i].id);
   }
 
   List<String> get _levelKeys {
@@ -107,16 +119,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      ValueListenableBuilder<ThemeMode>(
-                        valueListenable: themeModeNotifier,
-                        builder: (_, mode, __) => IconButton(
-                          tooltip: mode == ThemeMode.dark ? 'Modo claro' : 'Modo escuro',
-                          icon: Icon(mode == ThemeMode.dark ? Icons.light_mode_rounded : Icons.dark_mode_rounded),
-                          onPressed: () {
-                            themeModeNotifier.value =
-                                mode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-                          },
-                        ),
+                      IconButton(
+                        tooltip: 'Opções',
+                        icon: const Icon(Icons.settings_rounded),
+                        onPressed: () async {
+                          await Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => SettingsScreen(languages: widget.languages, selected: _selected, onSelect: _setLanguage)));
+                        },
                       ),
                     ],
                   ),
@@ -126,12 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   _ProgressHeader(store: _store, completed: _completedLevels, total: _totalLevels),
                   const SizedBox(height: 12),
                   _DailyCard(store: _store, language: language, onPlay: () => _openDaily(language)),
-                  const SizedBox(height: 16),
-                  _LanguageSelector(
-                    languages: widget.languages,
-                    selected: _selected,
-                    onSelect: (i) => setState(() => _selected = i),
-                  ),
                   const SizedBox(height: 16),
                 ],
               ),
@@ -261,54 +264,6 @@ class _DailyCard extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _LanguageSelector extends StatelessWidget {
-  final List<Language> languages;
-  final int selected;
-  final void Function(int) onSelect;
-
-  const _LanguageSelector({required this.languages, required this.selected, required this.onSelect});
-
-  @override
-  Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1E2130) : AppTheme.background,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppTheme.cellBorder.withOpacity(0.5)),
-      ),
-      child: Row(
-        children: [
-          for (var i = 0; i < languages.length; i++)
-            Expanded(
-              child: GestureDetector(
-                onTap: () => onSelect(i),
-                child: Semantics(
-                  selected: selected == i,
-                  button: true,
-                  label: languages[i].label,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      color: selected == i ? AppTheme.primary : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      languages[i].label,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w600, color: selected == i ? Colors.white : AppTheme.muted),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-        ],
       ),
     );
   }

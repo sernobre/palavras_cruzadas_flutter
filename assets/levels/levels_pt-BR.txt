@@ -1,0 +1,16 @@
+// Overlay pt-BR — adapta pistas/vocabulário para Brasil
+# facil
+label: Fácil
+description: Palavras curtas do dia a dia
+## Nível 1
+ONIBUS: Veículo coletivo que leva passageiros
+TREM: Veículo que anda sobre trilhos
+CELULAR: Aparelho para fazer ligações
+
+# medio
+label: Médio
+description: Mais letras e temas variados
+
+# dificil
+label: Difícil
+description: Vocabulário amplo e expressões

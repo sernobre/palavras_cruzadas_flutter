@@ -1,0 +1,17 @@
+// Overlay en-GB — UK spelling/semântica
+# facil
+label: Easy
+description: Short everyday words
+## Level 1
+FAVOURITE: Most liked thing
+COLOUR: Visual property like red or blue
+GREY: Color between black and white
+FLAT: Place where you live (UK)
+
+# medio
+label: Medium
+description: Longer words and varied topics
+
+# dificil
+label: Hard
+description: Wide vocabulary and phrases

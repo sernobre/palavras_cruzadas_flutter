@@ -1,0 +1,16 @@
+// Overlay es-419 — LatAm (México/Latinoamérica)
+# facil
+label: Fácil
+description: Palabras cortas del día a día
+## Nivel 1
+CARRO: Vehículo de cuatro ruedas
+CELULAR: Aparato para hacer llamadas
+COMPUTADORA: Máquina para procesar información
+
+# medio
+label: Medio
+description: Más letras y temas variados
+
+# dificil
+label: Difícil
+description: Vocabulario amplio y expresiones
