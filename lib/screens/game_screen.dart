@@ -584,35 +584,41 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Text(ui.progress(_filledCount, _puzzle.solution.length),
-                        style: const TextStyle(color: AppTheme.muted)),
-                    const SizedBox(width: 8),
-                    if (_hintsUsed > 0)
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                        decoration: BoxDecoration(
-                          color: Colors.orange.withOpacity(0.15),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text('$_hintsUsed dicas', style: const TextStyle(fontSize: 11, color: Colors.orange)),
-                      ),
-                  ],
+                Text(ui.progress(_filledCount, _puzzle.solution.length),
+                    style: const TextStyle(color: AppTheme.muted)),
+                if (_hintsUsed > 0) ...[
+                  const SizedBox(width: 6),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: Colors.orange.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text('$_hintsUsed dicas',
+                        style: const TextStyle(fontSize: 11, color: Colors.orange)),
+                  ),
+                ],
+                const SizedBox(width: 8),
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    reverse: true,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        _ActionChip(
+                            icon: Icons.undo_rounded, label: 'Desfazer', onTap: _undoStack.isEmpty ? null : _undo),
+                        const SizedBox(width: 6),
+                        _ActionChip(icon: Icons.tips_and_updates_rounded, label: ui.hint, onTap: () => _hint()),
+                        const SizedBox(width: 6),
+                        _ActionChip(icon: Icons.cleaning_services_rounded, label: ui.clear, onTap: _clearWord),
+                        const SizedBox(width: 6),
+                        _ActionChip(icon: Icons.check_circle_rounded, label: ui.check, onTap: _verify),
+                      ],
+                    ),
+                  ),
                 ),
-                Row(
-                  children: [
-                    _ActionChip(icon: Icons.undo_rounded, label: 'Desfazer', onTap: _undoStack.isEmpty ? null : _undo),
-                    const SizedBox(width: 6),
-                    _ActionChip(icon: Icons.tips_and_updates_rounded, label: ui.hint, onTap: () => _hint()),
-                    const SizedBox(width: 6),
-                    _ActionChip(icon: Icons.cleaning_services_rounded, label: ui.clear, onTap: _clearWord),
-                    const SizedBox(width: 6),
-                    _ActionChip(icon: Icons.check_circle_rounded, label: ui.check, onTap: _verify),
-                  ],
-                )
               ],
             ),
           ),
