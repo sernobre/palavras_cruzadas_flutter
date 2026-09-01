@@ -10,6 +10,11 @@ class ConsentService {
   final SharedPreferences _prefs;
   ConsentService(this._prefs);
 
+  static Future<ConsentService> load() async {
+    final p = await SharedPreferences.getInstance();
+    return ConsentService(p);
+  }
+
   ConsentStatus get status {
     final v = _prefs.getString(_consentKey);
     return ConsentStatus.values.firstWhere((e) => e.name == v, orElse: () => ConsentStatus.unknown);
@@ -23,14 +28,24 @@ class ConsentService {
     if (tcString != null) await _prefs.setString(_tcStringKey, tcString);
   }
 
-  bool get canShowPersonalizedAds =>
-      status == ConsentStatus.obtained || status == ConsentStatus.notRequired;
+  Future<void> setGpc(bool v) => _prefs.setBool(_gpcKey, v);
 
-  bool get canUseAnalytics =>
-      status == ConsentStatus.obtained || status == ConsentStatus.notRequired;
+  bool get canShowPersonalizedAds => status == ConsentStatus.obtained || status == ConsentStatus.notRequired;
+  bool get canUseAnalytics => status == ConsentStatus.obtained || status == ConsentStatus.notRequired;
+  bool get canShowNonPersonalized => status != ConsentStatus.declined && status != ConsentStatus.unknown || status == ConsentStatus.notRequired;
 
   static bool isEEAOrUK(String variantId) =>
       variantId.startsWith('pt') || variantId.startsWith('es') || variantId == 'en-GB';
 
-  static bool isUS(String variantId) => variantId == 'en-US';
+  static bool requiresConsent(String variantId) => isEEAOrUK(variantId);
+
+  Future<ConsentStatus> requestConsentIfNeeded(String variantId) async {
+    if (!requiresConsent(variantId)) {
+      if (status == ConsentStatus.unknown) await setStatus(ConsentStatus.notRequired);
+      return status;
+    }
+    if (status == ConsentStatus.obtained || status == ConsentStatus.declined || status == ConsentStatus.notRequired) return status;
+    await setStatus(ConsentStatus.required);
+    return ConsentStatus.required;
+  }
 }
